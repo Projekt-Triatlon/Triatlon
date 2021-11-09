@@ -1,0 +1,70 @@
+﻿@model TriatlonLogic.DataTransferObjects.EredmenyCreateDto
+
+
+@{
+	ViewData["Title"] = "Eredmény hozzáadása";
+}
+
+<h1>Hozzáadás</h1>
+
+<h4>Eredmény hozzáadása</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="VersenyOID" class="control-label"></label>
+				@Html.DropDownListFor(x => x.VersenyOID, Model.VersenySelectList, "--Kérlek válassz--", new { })
+				<span asp-validation-for="VersenyOID" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="VersenyzoOID" class="control-label"></label>
+				@Html.DropDownListFor(x => x.VersenyzoOID, Model.VersenyzoSelectList, "--Kérlek válassz--", new { })
+				<span asp-validation-for="VersenyzoOID" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ChipKod" class="control-label"></label>
+				<input asp-for="ChipKod" class="form-control" />
+				<span asp-validation-for="ChipKod" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="UszasIdo" class="control-label"></label>
+				<input asp-for="UszasIdo" type="time" value="00:00:00.001"   class="form-control" />
+				<span asp-validation-for="UszasIdo" class="text-danger"></span>
+				@*@Html.EditorFor(x => x.UszasIdo)*@
+			</div>
+			<div class="form-group">
+				<label asp-for="Depo1Ido" class="control-label"></label>
+				<input asp-for="Depo1Ido" type="time" value="00:00:00.001"  class="form-control" />
+				<span asp-validation-for="Depo1Ido" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="KerekparIdo" class="control-label"></label>
+				<input asp-for="KerekparIdo" type="time" value="00:00:00.001" class="form-control" />
+				<span asp-validation-for="KerekparIdo" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Depo2Ido" class="control-label"></label>
+				<input asp-for="Depo2Ido" type="time" value="00:00:00.001" class="form-control" />
+				<span asp-validation-for="Depo2Ido" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="FutasIdo" class="control-label"></label>
+				<input asp-for="FutasIdo" type="time" value="00:00:00.001"  class="form-control" />
+				<span asp-validation-for="FutasIdo" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Hozzáadás" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<div>
+	<a asp-action="Index">Vissza a listára</a>
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,53 @@
+﻿@model TriatlonLogic.Models.Verseny
+
+@{
+	ViewData["Title"] = "Verseny létrehozása";
+}
+
+<h1>Új verseny létrehozása</h1>
+
+<h4>Verseny létrehozása</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="Nev" class="control-label"></label>
+				<input asp-for="Nev" class="form-control" />
+				<span asp-validation-for="Nev" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Datum" class="control-label"></label>
+				<input asp-for="Datum" class="form-control" />
+				<span asp-validation-for="Datum" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="UTavolsag" class="control-label"></label>
+				<input asp-for="UTavolsag" class="form-control" />
+				<span asp-validation-for="UTavolsag" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="KTavolsag" class="control-label"></label>
+				<input asp-for="KTavolsag" class="form-control" />
+				<span asp-validation-for="KTavolsag" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="FTavolsag" class="control-label"></label>
+				<input asp-for="FTavolsag" class="form-control" />
+				<span asp-validation-for="FTavolsag" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Hozzáadás" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<div>
+	<a asp-action="Index">Vissza a versenyek listájára</a>
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

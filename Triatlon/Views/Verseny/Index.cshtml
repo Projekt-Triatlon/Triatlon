@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TriatlonLogic.Models.Verseny>
+
+@{
+	ViewData["Title"] = "Versenyek";
+}
+
+<h2>Versenyek</h2>
+
+<p>
+	<a asp-action="Create">Új verseny létrehozása</a>
+</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Nev)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Datum)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.UTavolsag)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.KTavolsag)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.FTavolsag)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+@foreach (var item in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Nev)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Datum)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.UTavolsag)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.KTavolsag)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.FTavolsag)
+			</td>
+
+			<td>
+				@Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID }) |
+				@Html.ActionLink("Részletes pályaadatok", "Details", new { oid = item.OID }) |
+				@Html.ActionLink("Törlés", "Delete", new { oid = item.OID })
+			</td>
+		</tr>
+}
+	</tbody>
+</table>

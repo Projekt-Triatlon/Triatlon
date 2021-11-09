@@ -1,0 +1,69 @@
+﻿@model TriatlonLogic.Models.VersenyVersenyzo
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Biztos, hogy törölni szeretné?</h3>
+<div>
+    <h4>Verseny eredmény</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ChipKod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ChipKod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UszasIdo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UszasIdo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Depo1Ido)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Depo1Ido)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KerekparIdo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KerekparIdo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Depo2Ido)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Depo2Ido)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FutasIdo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FutasIdo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Versenyzo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Versenyzo.Nev)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Verseny)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Verseny.Nev)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="OID" />
+        <input type="submit" value="Törlés" class="btn btn-danger" /> |
+        <a asp-action="Index">Vissza a listára</a>
+    </form>
+</div>

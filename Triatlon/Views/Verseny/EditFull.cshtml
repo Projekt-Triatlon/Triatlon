@@ -1,0 +1,181 @@
+﻿@model TriatlonLogic.Models.Verseny
+
+@{
+	ViewData["Title"] = "Versenyadatok módosítása";
+}
+
+<h1>Versenyadatok módosítása</h1>
+
+<h4>Versenyadatok módosítása</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Edit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="OID" />
+			<div class="form-group">
+				<label asp-for="Nev" class="control-label"></label>
+				<input asp-for="Nev" class="form-control" />
+				<span asp-validation-for="Nev" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Datum" class="control-label"></label>
+				<input asp-for="Datum" class="form-control" />
+				<span asp-validation-for="Datum" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="UTavolsag" class="control-label"></label>
+				<input asp-for="UTavolsag" class="form-control" />
+				<span asp-validation-for="UTavolsag" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="UKorokSzama" class="control-label"></label>
+				<input asp-for="UKorokSzama" class="form-control" />
+				<span asp-validation-for="UKorokSzama" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="UNeopren" class="control-label"></label>
+				<select asp-for="UNeopren">
+					<option value="true">Igen</option>
+					<option value="false">Nem</option>
+				</select>
+			</div>
+			@*<div class="form-group form-check">
+				<label class="form-check-label">
+					<input class="form-check-input" asp-for="UNeopren" /> @Html.DisplayNameFor(model => model.UNeopren)
+				</label>
+			</div>*@
+			<div class="form-group">
+				<label asp-for="UTipus" class="control-label"></label>
+				<input asp-for="UTipus" class="form-control" />
+				<span asp-validation-for="UTipus" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="UMelyseg" class="control-label"></label>
+				<input asp-for="UMelyseg" class="form-control" />
+				<span asp-validation-for="UMelyseg" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="UVizHofok" class="control-label"></label>
+				<input asp-for="UVizHofok" class="form-control" />
+				<span asp-validation-for="UVizHofok" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="UHullamzas" class="control-label"></label>
+				<input asp-for="UHullamzas" class="form-control" />
+				<span asp-validation-for="UHullamzas" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="USzel" class="control-label"></label>
+				<input asp-for="USzel" class="form-control" />
+				<span asp-validation-for="USzel" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="UCsapadek" class="control-label"></label>
+				<input asp-for="UCsapadek" class="form-control" />
+				<span asp-validation-for="UCsapadek" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ULevegoHomerseklet" class="control-label"></label>
+				<input asp-for="ULevegoHomerseklet" class="form-control" />
+				<span asp-validation-for="ULevegoHomerseklet" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ULevegoParatartalom" class="control-label"></label>
+				<input asp-for="ULevegoParatartalom" class="form-control" />
+				<span asp-validation-for="ULevegoParatartalom" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="KTavolsag" class="control-label"></label>
+				<input asp-for="KTavolsag" class="form-control" />
+				<span asp-validation-for="KTavolsag" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="KMinoseg" class="control-label"></label>
+				<input asp-for="KMinoseg" class="form-control" />
+				<span asp-validation-for="KMinoseg" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="KSzintemelkedes" class="control-label"></label>
+				<input asp-for="KSzintemelkedes" class="form-control" />
+				<span asp-validation-for="KSzintemelkedes" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="KKorokSzama" class="control-label"></label>
+				<input asp-for="KKorokSzama" class="form-control" />
+				<span asp-validation-for="KKorokSzama" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="KSzel" class="control-label"></label>
+				<input asp-for="KSzel" class="form-control" />
+				<span asp-validation-for="KSzel" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="KCsapadek" class="control-label"></label>
+				<input asp-for="KCsapadek" class="form-control" />
+				<span asp-validation-for="KCsapadek" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="KLevegoHomerseklet" class="control-label"></label>
+				<input asp-for="KLevegoHomerseklet" class="form-control" />
+				<span asp-validation-for="KLevegoHomerseklet" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="KLevegoParatartalom" class="control-label"></label>
+				<input asp-for="KLevegoParatartalom" class="form-control" />
+				<span asp-validation-for="KLevegoParatartalom" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="FTavolsag" class="control-label"></label>
+				<input asp-for="FTavolsag" class="form-control" />
+				<span asp-validation-for="FTavolsag" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="FMinoseg" class="control-label"></label>
+				<input asp-for="FMinoseg" class="form-control" />
+				<span asp-validation-for="FMinoseg" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="FSzintemelkedes" class="control-label"></label>
+				<input asp-for="FSzintemelkedes" class="form-control" />
+				<span asp-validation-for="FSzintemelkedes" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="FKorokSzama" class="control-label"></label>
+				<input asp-for="FKorokSzama" class="form-control" />
+				<span asp-validation-for="FKorokSzama" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="FSzel" class="control-label"></label>
+				<input asp-for="FSzel" class="form-control" />
+				<span asp-validation-for="FSzel" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="FCsapadek" class="control-label"></label>
+				<input asp-for="FCsapadek" class="form-control" />
+				<span asp-validation-for="FCsapadek" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="FLevegoHomerseklet" class="control-label"></label>
+				<input asp-for="FLevegoHomerseklet" class="form-control" />
+				<span asp-validation-for="FLevegoHomerseklet" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="FLevegoParatartalom" class="control-label"></label>
+				<input asp-for="FLevegoParatartalom" class="form-control" />
+				<span asp-validation-for="FLevegoParatartalom" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Mentés" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<div>
+	<a asp-action="Index">Vissza a versenyek listájára</a>
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

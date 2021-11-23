@@ -4,12 +4,13 @@
 	ViewData["Title"] = "Versenyek";
 }
 
-<h2>Versenyek</h2>
-
+<br>
+<h2><i class="bi bi-flag-fill"></i>Versenyek</h2>
+<br>
 <p>
-	<a asp-action="Create">Új verseny létrehozása</a>
+    <a class="btn btn-primary" asp-action="Create"><i class="bi bi-file-earmark-plus-fill"></i> Új verseny</a>
 </p>
-<table class="table">
+<table class="table table-striped table-sm">
 	<thead>
 		<tr>
 			<th>
@@ -50,10 +51,10 @@
 			</td>
 
 			<td>
-				@Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID }) |
-				@Html.ActionLink("Részletes pályaadatok", "Details", new { oid = item.OID }) |
-				@Html.ActionLink("Törlés", "Delete", new { oid = item.OID })
-			</td>
+                <i class="bi bi-pencil-square">@Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID })</i> 
+                <i class="bi bi-search">@Html.ActionLink("Részletes pályaadatok", "Details", new { oid = item.OID })</i> 
+                <i class="bi bi-trash">@Html.ActionLink("Törlés", "Delete", new { oid = item.OID })</i>
+</td>
 		</tr>
 }
 	</tbody>

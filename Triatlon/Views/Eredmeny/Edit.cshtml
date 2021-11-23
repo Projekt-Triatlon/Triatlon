@@ -1,7 +1,7 @@
 ﻿@model TriatlonLogic.Models.VersenyVersenyzo
 
 @{
-	ViewData["Title"] = "Szerkesztés";
+    ViewData["Title"] = "Szerkesztés";
 }
 
 <h1>Eredmény szerkesztése</h1>
@@ -9,71 +9,74 @@
 <h4>Eredmények</h4>
 <hr />
 <div class="row">
-	<div class="col-md-4">
-		<form asp-action="Edit">
-			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-			<input type="hidden" asp-for="OID" />
-			<div class="form-group">
-				<label asp-for="ChipKod" class="control-label"></label>
-				<input asp-for="ChipKod" class="form-control" />
-				<span asp-validation-for="ChipKod" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="Rajtszam" class="control-label"></label>
-				<input asp-for="Rajtszam" class="form-control" />
-				<span asp-validation-for="Rajtszam" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="UszasIdo" class="control-label"></label>
-				<input asp-for="UszasIdo" class="form-control" />
-				<span asp-validation-for="UszasIdo" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="Depo1Ido" class="control-label"></label>
-				<input asp-for="Depo1Ido" class="form-control" />
-				<span asp-validation-for="Depo1Ido" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="KerekparIdo" class="control-label"></label>
-				<input asp-for="KerekparIdo" class="form-control" />
-				<span asp-validation-for="KerekparIdo" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="Depo2Ido" class="control-label"></label>
-				<input asp-for="Depo2Ido" class="form-control" />
-				<span asp-validation-for="Depo2Ido" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="FutasIdo" class="control-label"></label>
-				<input asp-for="FutasIdo" class="form-control" />
-				<span asp-validation-for="FutasIdo" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="CelIdo" class="control-label"></label>
-				<input asp-for="CelIdo" class="form-control" />
-				<span asp-validation-for="CelIdo" class="text-danger"></span>
-			</div>
-			@*<div class="form-group">
-					<label asp-for="VersenyzoOID" class="control-label"></label>
-					<select asp-for="VersenyzoOID" class="form-control" asp-items="ViewBag.VersenyzoOID"></select>
-					<span asp-validation-for="VersenyzoOID" class="text-danger"></span>
-				</div>
-				<div class="form-group">
-					<label asp-for="VersenyOID" class="control-label"></label>
-					<select asp-for="VersenyOID" class="form-control" asp-items="ViewBag.VersenyOID"></select>
-					<span asp-validation-for="VersenyOID" class="text-danger"></span>
-				</div>*@
-			<div class="form-group">
-				<input type="submit" value="Mentés" class="btn btn-primary" />
-			</div>
-		</form>
-	</div>
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="OID" />
+            <div class="form-group">
+                <label asp-for="ChipKod" class="control-label"></label>
+                <input asp-for="ChipKod" class="form-control" />
+                <span asp-validation-for="ChipKod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rajtszam" class="control-label"></label>
+                <input asp-for="Rajtszam" class="form-control" />
+                <span asp-validation-for="Rajtszam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UszasIdo" class="control-label"></label>
+                <input asp-for="UszasIdo" class="form-control" />
+                <span asp-validation-for="UszasIdo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depo1Ido" class="control-label"></label>
+                <input asp-for="Depo1Ido" class="form-control" />
+                <span asp-validation-for="Depo1Ido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KerekparIdo" class="control-label"></label>
+                <input asp-for="KerekparIdo" class="form-control" />
+                <span asp-validation-for="KerekparIdo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depo2Ido" class="control-label"></label>
+                <input asp-for="Depo2Ido" class="form-control" />
+                <span asp-validation-for="Depo2Ido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FutasIdo" class="control-label"></label>
+                <input asp-for="FutasIdo" class="form-control" />
+                <span asp-validation-for="FutasIdo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CelIdo" class="control-label"></label>
+                <input asp-for="CelIdo" class="form-control" />
+                <span asp-validation-for="CelIdo" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="VersenyzoOID" class="control-label"></label>
+                    <select asp-for="VersenyzoOID" class="form-control" asp-items="ViewBag.VersenyzoOID"></select>
+                    <span asp-validation-for="VersenyzoOID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="VersenyOID" class="control-label"></label>
+                    <select asp-for="VersenyOID" class="form-control" asp-items="ViewBag.VersenyOID"></select>
+                    <span asp-validation-for="VersenyOID" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <input type="submit" value="Mentés" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
 </div>
 
 <div>
-	<a asp-action="Index">Vissza a listára</a>
+    <a asp-action="Index">Vissza a listára</a>
 </div>
 
 @section Scripts {
-	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<br />
+<br />

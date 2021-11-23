@@ -8,7 +8,7 @@ namespace TriatlonDataAccess.Context
 	{
 		public static string GetConnectionString()
 		{
-			return @"Server=(localdb)\mssqllocaldb;Database=aspnet-53bc9b9d-9d6a-45d4-8429-2a2761773502;Trusted_Connection=True;MultipleActiveResultSets=true";
+			return @"Server=(localdb)\mssqllocaldb;Database=aspnet-A9B09F27-4B72-4143-B3F7-FCA16AD356DE;Trusted_Connection=True;MultipleActiveResultSets=true";
 		
 		}
 	}

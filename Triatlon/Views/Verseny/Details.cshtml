@@ -1,216 +1,218 @@
 ﻿@model TriatlonLogic.Models.Verseny
 
 @{
-	ViewData["Title"] = "Versenypálya részletei";
+    ViewData["Title"] = "Versenypálya részletei";
 }
 
 <h1>Versenypálya részletes adatai</h1>
 
 <div>
-	<hr />
-	<dl class="row">
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Nev)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Nev)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Helyszin)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Helyszin)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Datum)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Datum)
-		</dd>
-		<dt class="col-sm-2">
-			<br />
-			<h5 style="color : #000000; font-size : 20px">Úszópálya adatok</h5>
-		</dt>
-		<dd class="col-sm-10"></dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.UTavolsag)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.UTavolsag)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.UKorokSzama)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.UKorokSzama)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.UNeopren)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.UNeopren)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.UTipus)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.UTipus)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.UMelyseg)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.UMelyseg)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.UVizHofok)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.UVizHofok)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.UHullamzas)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.UHullamzas)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.USzel)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.USzel)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.UCsapadek)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.UCsapadek)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.ULevegoHomerseklet)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.ULevegoHomerseklet)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.ULevegoParatartalom)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.ULevegoParatartalom)
-		</dd>
-		<dt class="col-sm-2">
-			<br />
-			<h5 style="color : #000000 ">Kerékpárpálya adatok</h5>
-		</dt>
-		<dd class="col-sm-10">
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.KTavolsag)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.KTavolsag)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.KMinoseg)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.KMinoseg)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.KSzintemelkedes)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.KSzintemelkedes)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.KKorokSzama)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.KKorokSzama)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.KSzel)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.KSzel)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.KCsapadek)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.KCsapadek)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.KLevegoHomerseklet)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.KLevegoHomerseklet)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.KLevegoParatartalom)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.KLevegoParatartalom)
-		</dd>
-		<dt class="col-sm-2">
-			<br />
-			<h5 style="color : #000000 ">Futópálya adatok</h5>
-		</dt>
-		<dd class="col-sm-10">
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.FTavolsag)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.FTavolsag)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.FMinoseg)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.FMinoseg)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.FSzintemelkedes)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.FSzintemelkedes)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.FKorokSzama)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.FKorokSzama)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.FSzel)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.FSzel)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.FCsapadek)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.FCsapadek)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.FLevegoHomerseklet)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.FLevegoHomerseklet)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.FLevegoParatartalom)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.FLevegoParatartalom)
-		</dd>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nev)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nev)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Helyszin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Helyszin)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+        <dt class="col-sm-2">
+            <br />
+            <h5 style="color : #000000; font-size : 20px">Úszópálya adatok</h5>
+        </dt>
+        <dd class="col-sm-10"></dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UTavolsag)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UTavolsag)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UKorokSzama)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UKorokSzama)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UNeopren)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UNeopren)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UTipus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UTipus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UMelyseg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UMelyseg)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UVizHofok)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UVizHofok)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UHullamzas)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UHullamzas)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.USzel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.USzel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UCsapadek)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UCsapadek)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ULevegoHomerseklet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ULevegoHomerseklet)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ULevegoParatartalom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ULevegoParatartalom)
+        </dd>
+        <dt class="col-sm-2">
+            <br />
+            <h5 style="color : #000000 ">Kerékpárpálya adatok</h5>
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KTavolsag)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KTavolsag)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KMinoseg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KMinoseg)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KSzintemelkedes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KSzintemelkedes)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KKorokSzama)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KKorokSzama)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KSzel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KSzel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KCsapadek)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KCsapadek)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KLevegoHomerseklet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KLevegoHomerseklet)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KLevegoParatartalom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KLevegoParatartalom)
+        </dd>
+        <dt class="col-sm-2">
+            <br />
+            <h5 style="color : #000000 ">Futópálya adatok</h5>
+        </dt>
+        <dd class="col-sm-10">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FTavolsag)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FTavolsag)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FMinoseg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FMinoseg)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FSzintemelkedes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FSzintemelkedes)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FKorokSzama)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FKorokSzama)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FSzel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FSzel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FCsapadek)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FCsapadek)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FLevegoHomerseklet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FLevegoHomerseklet)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FLevegoParatartalom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FLevegoParatartalom)
+        </dd>
 
-	</dl>
+    </dl>
 
 </div>
 <div>
-	@Html.ActionLink("Adatok szerkesztése", "EditFull", new { @Model.OID }) |
-	<a asp-action="Index">Vissza a versenyek listájára</a>
+    @Html.ActionLink("Adatok szerkesztése", "EditFull", new { @Model.OID }) |
+    <a asp-action="Index">Vissza a versenyek listájára</a>
 </div>
+<br />
+<br />

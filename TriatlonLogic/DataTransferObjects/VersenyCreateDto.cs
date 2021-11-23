@@ -15,6 +15,8 @@ namespace TouristLogic.DataTransferObjects
 		[DisplayName("Verseny neve")]
 		public string Nev { get; set; }
 
+		public string Helyszin { get; set; }
+
 		[Required]
 		[DisplayName("Dátum")]
 		public DateTime Datum { get; set; }

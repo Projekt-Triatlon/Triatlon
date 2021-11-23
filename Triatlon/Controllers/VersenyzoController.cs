@@ -1,31 +1,88 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using TriatlonCore.DependencyInjection;
 using TriatlonLogic.Managers;
 using TriatlonLogic.Models;
+using System.IO;
+using System.Data.OleDb;
+using System.Collections;
+using System.Text;
 
 namespace Triatlon.Controllers
 {
 	public class VersenyzoController : Controller
 	{
-		private readonly IWebHostEnvironment _webHostEnvironment;
-
-		public VersenyzoController(IWebHostEnvironment webHostEnvironment)
-		{
-			_webHostEnvironment = webHostEnvironment;
-		}
-
 		public ActionResult Index()
 		{
 			var versenyzoManager = TDI.Resolve<VersenyzoManager>();
 			var versenyzoList = versenyzoManager.GetAll();
 
 			return View(versenyzoList);
+		}
+
+
+		//public ActionResult Index()
+		//{
+		//	return View();
+		//}
+
+		[HttpPost]
+		public ActionResult Index(IFormFile postedFile)
+		{
+			if (postedFile != null)
+			{
+				try
+				{
+					string fileExtension = Path.GetExtension(postedFile.FileName);
+
+					if (fileExtension != ".csv")
+					{
+						ViewBag.Message = "Csak .csv kiterjesztésű fájlt adhat meg!";
+						return RedirectToAction(nameof(Index));
+					}
+
+					var versenyzoManager = TDI.Resolve<VersenyzoManager>();
+					var versenyzok = new List<Versenyzo>();
+					using (var sreader = new StreamReader(postedFile.OpenReadStream()))
+					{
+
+						//string[] headers = sreader.ReadLine().Split(';');
+						while (!sreader.EndOfStream)
+						{
+							string[] rows = sreader.ReadLine().Split(';');
+
+							versenyzoManager.Add(new Versenyzo
+							{
+								//OID = Int64.Parse(rows[0].ToString()),
+								Nev = rows[0].ToString(),
+								Nem = rows[1].ToString(),
+								SzulIdo = DateTime.Parse(rows[2].ToString()),
+								Egyesulet = rows[3].ToString(),
+								Licence = rows[4].ToString()
+							});
+
+						}
+					}
+
+					return RedirectToAction(nameof(Index));
+				}
+				catch (Exception ex)
+				{
+					ViewBag.Message = ex.Message;
+				}
+			}
+			else
+			{
+				ViewBag.Message = "Kérem válassza ki a CSV fájlt először.";
+			}
+			return RedirectToAction(nameof(Index));
 		}
 
 		// GET: VersenyzoController/Details/5
@@ -135,5 +192,6 @@ namespace Triatlon.Controllers
 				return View();
 			}
 		}
+
 	}
 }

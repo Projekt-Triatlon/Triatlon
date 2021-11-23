@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using TriatlonCore.DependencyInjection;
@@ -13,20 +14,88 @@ namespace Triatlon.Controllers
 {
 	public class VersenyController : Controller
 	{
-		private readonly IWebHostEnvironment _webHostEnvironment;
-
-		public VersenyController(IWebHostEnvironment webHostEnvironment)
-		{
-			_webHostEnvironment = webHostEnvironment;
-		}
-
-
-		// GET: VersenyController
 		public ActionResult Index()
 		{
 			var versenyManager = TDI.Resolve<VersenyManager>();
 			var versenyek = versenyManager.GetAll();
 			return View(versenyek);
+		}
+
+		[HttpPost]
+		public ActionResult Index(IFormFile postedFile)
+		{
+			if (postedFile != null)
+			{
+				try
+				{
+					string fileExtension = Path.GetExtension(postedFile.FileName);
+
+					if (fileExtension != ".csv")
+					{
+						ViewBag.Message = "Csak .csv kiterjesztésű fájlt adhat meg!";
+						return RedirectToAction(nameof(Index));
+					}
+
+					var versenyManager = TDI.Resolve<VersenyManager>();
+					var versenyek = new List<Verseny>();
+					using (var sreader = new StreamReader(postedFile.OpenReadStream()))
+					{
+
+						//string[] headers = sreader.ReadLine().Split(';');
+						while (!sreader.EndOfStream)
+						{
+							string[] rows = sreader.ReadLine().Split(';');
+
+							versenyManager.Add(new Verseny
+							{
+								//OID = Int64.Parse(rows[0].ToString()),
+								Nev = rows[0].ToString(),
+								Helyszin = rows[1].ToString(),
+								Datum = DateTime.Parse(rows[2].ToString()),
+								UTavolsag = Int32.Parse(rows[3].ToString()),
+								UKorokSzama = Int32.Parse(rows[4].ToString()),
+								UTipus = rows[5].ToString(),
+								UNeopren = Boolean.Parse(rows[6].ToString()),
+								UMelyseg = Double.Parse(rows[7].ToString()),
+								UVizHofok = Double.Parse(rows[8].ToString()),
+								UHullamzas = rows[9].ToString(),
+								USzel = Double.Parse(rows[10].ToString()),
+								UCsapadek = Double.Parse(rows[11].ToString()),
+								ULevegoHomerseklet = Double.Parse(rows[12].ToString()),
+								ULevegoParatartalom = Double.Parse(rows[13].ToString()),
+								KTavolsag = Int32.Parse(rows[14].ToString()),
+								KMinoseg = rows[15].ToString(),
+								KSzintemelkedes = Double.Parse(rows[16].ToString()),
+								KKorokSzama = Int32.Parse(rows[17].ToString()),
+								KSzel = Double.Parse(rows[18].ToString()),
+								KCsapadek = Double.Parse(rows[19].ToString()),
+								KLevegoHomerseklet = Double.Parse(rows[20].ToString()),
+								KLevegoParatartalom = Double.Parse(rows[21].ToString()),
+								FTavolsag = Int32.Parse(rows[22].ToString()),
+								FMinoseg = rows[23].ToString(),
+								FSzintemelkedes = Double.Parse(rows[24].ToString()),
+								FKorokSzama = Int32.Parse(rows[25].ToString()),
+								FSzel = Double.Parse(rows[26].ToString()),
+								FCsapadek = Double.Parse(rows[27].ToString()),
+								FLevegoHomerseklet = Double.Parse(rows[28].ToString()),
+								FLevegoParatartalom = Double.Parse(rows[29].ToString()),
+							});
+
+						}
+					}
+
+					return RedirectToAction(nameof(Index));
+				}
+				catch (Exception ex)
+				{
+					ViewBag.Message = ex.Message;
+				}
+			}
+			else
+			{
+				ViewBag.Message = "Kérem válassza ki a CSV fájlt először.";
+			}
+			return RedirectToAction(nameof(Index));
 		}
 
 		public ActionResult Details(int oid)
@@ -38,20 +107,13 @@ namespace Triatlon.Controllers
 		}
 
 
-
 		public ActionResult Create()
 		{
-			//var versenyManager = TDI.Resolve<VersenyManager>();
-			//var versenyCreateDto = versenyManager.GetVersenyCreateDto();
-
 			return View(new Verseny());
 		}
 
 		public ActionResult CreateFull()
 		{
-			//var versenyManager = TDI.Resolve<VersenyManager>();
-			//var versenyCreateDto = versenyManager.GetVersenyCreateDto();
-
 			return View(new Verseny());
 		}
 
@@ -64,8 +126,9 @@ namespace Triatlon.Controllers
 				var verseny = new Verseny()
 				{
 					Nev = collection["Nev"],
+					Helyszin = collection["Helyszin"],
 					Datum = Convert.ToDateTime(collection["Datum"]),
-					UTavolsag= Convert.ToDouble(collection["UTavolsag"]),
+					UTavolsag = Convert.ToDouble(collection["UTavolsag"]),
 					KTavolsag = Convert.ToDouble(collection["KTavolsag"]),
 					FTavolsag = Convert.ToDouble(collection["FTavolsag"]),
 				};
@@ -90,6 +153,7 @@ namespace Triatlon.Controllers
 				var verseny = new Verseny()
 				{
 					Nev = collection["Nev"],
+					Helyszin = collection["Helyszin"],
 					Datum = Convert.ToDateTime(collection["Datum"]),
 					UTavolsag = Convert.ToDouble(collection["UTavolsag"]),
 					UKorokSzama = Convert.ToInt32(collection["UKorokSzama"]),
@@ -159,6 +223,7 @@ namespace Triatlon.Controllers
 				{
 					OID = oid,
 					Nev = collection["Nev"],
+					Helyszin = collection["Helyszin"],
 					Datum = Convert.ToDateTime(collection["Datum"]),
 					UTavolsag = Convert.ToDouble(collection["UTavolsag"]),
 					UKorokSzama = Convert.ToInt32(collection["UKorokSzama"]),
@@ -211,6 +276,7 @@ namespace Triatlon.Controllers
 				{
 					OID = oid,
 					Nev = collection["Nev"],
+					Helyszin = collection["Helyszin"],
 					Datum = Convert.ToDateTime(collection["Datum"]),
 					UTavolsag = Convert.ToDouble(collection["UTavolsag"]),
 					UKorokSzama = Convert.ToInt32(collection["UKorokSzama"]),

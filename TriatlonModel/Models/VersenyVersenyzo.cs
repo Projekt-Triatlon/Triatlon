@@ -17,22 +17,34 @@ namespace TriatlonLogic.Models
 		[DisplayName("Chip kód")]
 		public string ChipKod { get; set; }
 
-		[DisplayName("Úszás idő")]
+		[DisplayName("Rajtszám")]
+		public long Rajtszam { get; set; }
+
+		[DisplayName("Úszás idő [hh:min:sec]")]
 		//[DisplayFormat(DataFormatString = "{0:hhmmssfff}", ApplyFormatInEditMode = true)]
 		//[DataType(DataType.Time)]
 		public TimeSpan UszasIdo { get; set; }
 
-		[DisplayName("Depo 1 idő")]
+		[DisplayName("Depo 1 idő [hh:min:sec]")]
 		public TimeSpan Depo1Ido { get; set; }
 
-		[DisplayName("Kerékpár idő")]
+		[DisplayName("Kerékpár idő [hh:min:sec]")]
 		public TimeSpan KerekparIdo { get; set; }
 
-		[DisplayName("Depo 2 idő")]
+		[DisplayName("Depo 2 idő [hh:min:sec]")]
 		public TimeSpan Depo2Ido { get; set; }
 
-		[DisplayName("Futás idő")]
+		[DisplayName("Futás idő [hh:min:sec]")]
 		public TimeSpan FutasIdo { get; set; }
+
+		[DisplayName("Cél idő [hh:min:sec]")]
+		public TimeSpan CelIdo { get; set; }
+
+		[DisplayName("Helyezés")]
+		public long AbszolutHelyezes { get; set; }
+
+
+
 
 		public long VersenyzoOID { get; set; }
 
@@ -45,6 +57,6 @@ namespace TriatlonLogic.Models
 		public virtual Verseny Verseny { get; set; }
 
 		public virtual ICollection<Korido> Koridok { get; set; }
-		
+
 	}
 }

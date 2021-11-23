@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TriatlonLogic.Models.Korido>
+
+@{
+	ViewData["Title"] = "Köridők";
+}
+
+<h1>Köridők</h1>
+
+<p>
+	<a asp-action="Create">Új köridő hozzáadása</a>
+</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.ChipKod)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Szakasz)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.KorSzama)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Ido)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+@foreach (var item in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.ChipKod)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Szakasz)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.KorSzama)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Ido)
+			</td>
+			<td>
+				@Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID }) |
+				@Html.ActionLink("Törlés", "Delete", new { oid = item.OID }) |
+				<a asp-controller="Eredmeny" asp-action="Index">Vissza a listára</a>
+			</td>
+		</tr>
+}
+	</tbody>
+</table>

@@ -43,6 +43,7 @@ namespace TriatlonLogic.Managers
 			var versenyRepository = TDI.Resolve<IVersenyRepository>();
 			var verseny = versenyRepository.Get(tempVerseny.OID);
 			verseny.Nev = tempVerseny.Nev;
+			verseny.Helyszin = tempVerseny.Helyszin;
 			verseny.Datum = tempVerseny.Datum;
 			verseny.UTavolsag = tempVerseny.UTavolsag;
 			verseny.UKorokSzama = tempVerseny.UKorokSzama;

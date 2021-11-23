@@ -19,6 +19,9 @@ namespace TriatlonLogic.Models
 		[DisplayName("Verseny neve")]
 		public string Nev { get; set; }
 
+		[DisplayName("Helyszín")]
+		public string Helyszin { get; set; }
+
 		[Required]
 		[DisplayName("Dátum")]
 		public DateTime Datum { get; set; }

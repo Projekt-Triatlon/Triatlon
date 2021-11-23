@@ -14,11 +14,13 @@ namespace TriatlonLogic.Managers
 	{
 		public List<VersenyVersenyzo> GetAll()
 		{
+			//ORDER BY CELIDO
 			var eredmenyRepository = TDI.Resolve<IVersenyVersenyzoRepository>();
 			var eredmenyList = eredmenyRepository.GetAll().ToList();
 
 			return eredmenyList;
 		}
+
 
 		public EredmenyCreateDto GetEredmenyCreateDto()
 		{
@@ -70,19 +72,22 @@ namespace TriatlonLogic.Managers
 			var versenyRepository = TDI.Resolve<IVersenyRepository>();
 			var verseny = versenyRepository.Get(eredmeny.VersenyOID);
 
-			
+
 
 			var eredmenyDisplayDto = new EredmenyDisplayDto();
 			eredmenyDisplayDto.OID = eredmeny.OID;
 			eredmenyDisplayDto.ChipKod = eredmeny.ChipKod;
+			eredmenyDisplayDto.Rajtszam = eredmeny.Rajtszam;
 			eredmenyDisplayDto.UszasIdo = eredmeny.UszasIdo;
 			eredmenyDisplayDto.Depo1Ido = eredmeny.Depo1Ido;
 			eredmenyDisplayDto.KerekparIdo = eredmeny.KerekparIdo;
 			eredmenyDisplayDto.Depo2Ido = eredmeny.Depo2Ido;
 			eredmenyDisplayDto.FutasIdo = eredmeny.FutasIdo;
+			eredmenyDisplayDto.CelIdo = eredmeny.CelIdo;
 
 			eredmenyDisplayDto.VersenyzoNev = versenyzo.Nev;
-			eredmenyDisplayDto.VersenyNev = verseny.Nev;
+			eredmenyDisplayDto.Egyesulet = versenyzo.Egyesulet;
+			//eredmenyDisplayDto.VersenyNev = verseny.Nev;
 
 			return eredmenyDisplayDto;
 		}
@@ -99,11 +104,13 @@ namespace TriatlonLogic.Managers
 			var eredmenyRepository = TDI.Resolve<IVersenyVersenyzoRepository>();
 			var eredmeny = eredmenyRepository.Get(tempEredmeny.OID);
 			eredmeny.ChipKod = tempEredmeny.ChipKod;
+			eredmeny.Rajtszam = tempEredmeny.Rajtszam;
 			eredmeny.UszasIdo = tempEredmeny.UszasIdo;
 			eredmeny.Depo1Ido = tempEredmeny.Depo1Ido;
 			eredmeny.KerekparIdo = tempEredmeny.KerekparIdo;
 			eredmeny.Depo2Ido = tempEredmeny.Depo2Ido;
 			eredmeny.FutasIdo = tempEredmeny.FutasIdo;
+			eredmeny.CelIdo = tempEredmeny.CelIdo;
 
 			eredmenyRepository.Update(eredmeny);
 		}
@@ -114,21 +121,6 @@ namespace TriatlonLogic.Managers
 			var eredmeny = eredmenyRepository.Get(oid);
 
 			eredmenyRepository.Delete(eredmeny);
-		}
-
-		public void SetDeleted(long oid)
-		{
-			var eredmenyRepository = TDI.Resolve<IVersenyVersenyzoRepository>();
-			var eredmeny = eredmenyRepository.Get(oid);
-
-			eredmeny.ChipKod = string.Empty;
-			eredmeny.UszasIdo = TimeSpan.MinValue;
-			eredmeny.Depo1Ido = TimeSpan.MinValue;
-			eredmeny.KerekparIdo = TimeSpan.MinValue;
-			eredmeny.Depo2Ido = TimeSpan.MinValue;
-			eredmeny.FutasIdo = TimeSpan.MinValue;
-
-			eredmenyRepository.Update(eredmeny);
 		}
 	}
 }

@@ -4,10 +4,12 @@
 	ViewData["Title"] = "Köridők";
 }
 
-<h1>Köridők</h1>
-
+<br />
+<h2><i class="bi bi-clock"></i> Köridők</h2>
+<hr />
 <p>
-	<a asp-action="Create">Új köridő hozzáadása</a>
+    <a class="btn btn-primary" asp-controller="Eredmeny" asp-action="Index"><i class="bi bi-box-arrow-left"></i> </a>
+    <a type="button" asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Új köridő</a>
 </p>
 <table class="table">
 	<thead>
@@ -45,7 +47,6 @@
 			<td>
 				@Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID }) |
 				@Html.ActionLink("Törlés", "Delete", new { oid = item.OID }) |
-				<a asp-controller="Eredmeny" asp-action="Index">Vissza a listára</a>
 			</td>
 		</tr>
 }

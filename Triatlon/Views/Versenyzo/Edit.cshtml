@@ -4,9 +4,8 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Szerkesztés</h1>
-
-<h4>Versenyző szerkesztés</h4>
+<br />
+<h2><i class="bi bi-pencil-square"></i> Versenyző szerkesztése</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -45,14 +44,11 @@
                 <span asp-validation-for="Licence" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <a class="btn btn-primary" asp-action="Index"><i class="bi bi-box-arrow-left"></i> </a>
                 <input type="submit" value="Mentés" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Vissza a listára</a>
 </div>
 
 @section Scripts {

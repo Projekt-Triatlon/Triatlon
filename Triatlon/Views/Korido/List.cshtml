@@ -1,74 +1,75 @@
 ﻿@model IEnumerable<TriatlonLogic.Models.Korido>
 
 @{
-	ViewData["Title"] = "Köridők";
+    ViewData["Title"] = "Köridők";
 }
 
-<h1>Köridők</h1>
-
+<br />
+<h2><i class="bi bi-clock"></i> Köridők</h2>
+<hr />
 <p>
-	<a asp-action="Create">Új köridő hozzáadása</a>
-	<div><b>Köridők betöltése CSV fájlból: </b></div>
-	@using (Html.BeginForm("Index", "Korido", FormMethod.Post, new { enctype = "multipart/form-data" }))
-	{
-		<input type="file" id="postedFile" name="postedFile" />
-		<input type="submit" title="Upload" value="OK" />
+    <a class="btn btn-primary" asp-controller="Eredmeny" asp-action="Index"><i class="bi bi-box-arrow-left"></i> </a>
+    <a type="button" asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Új köridő</a>
+    <div><b>Köridők betöltése CSV fájlból: </b></div>
+    @using (Html.BeginForm("Index", "Korido", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" id="postedFile" name="postedFile" />
+        <input type="submit" title="Upload" value="OK" />
 
-		<div class="col-md-offset-3 col-md-10">
-			<br />
-			<span style="color:red;">
-				@ViewBag.Message
-			</span>
-		</div>
-	}
+        <div class="col-md-offset-3 col-md-10">
+            <br />
+            <span style="color:red;">
+                @ViewBag.Message
+            </span>
+        </div>
+    }
 </p>
 <table class="table">
-	<thead>
-		<tr>
-			<th>
-				@Html.DisplayNameFor(model => model.OID)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.ChipKod)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Szakasz)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.KorSzama)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Ido)
-			</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var item in Model)
-		{
-		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.OID)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.ChipKod)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Szakasz)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.KorSzama)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Ido)
-			</td>
-			<td>
-				@Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID }) |
-				@Html.ActionLink("Törlés", "Delete", new { oid = item.OID })
-			</td>
-		</tr>
-		}
-	</tbody>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChipKod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Szakasz)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KorSzama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ido)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChipKod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Szakasz)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KorSzama)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ido)
+                </td>
+                <td>
+                    @Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID }) |
+                    @Html.ActionLink("Törlés", "Delete", new { oid = item.OID })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 <br />
-<a asp-controller="Eredmeny" asp-action="Index">Vissza a listára</a>

@@ -96,11 +96,11 @@
 				@Html.DisplayFor(modelItem => item.OID)
 			</td>
 			<td>
-				@Html.ActionLink("Részletek", "Details", new { oid = item.OID })
-				@Html.ActionLink("Köridők", "List", "Korido", new { chipkod = item.ChipKod })
-				@Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID })
-				@Html.ActionLink("Törlés", "Delete", new { oid = item.OID })
-			</td>
+                <i class="bi bi-search"> @Html.ActionLink("Részletek", "Details", new { oid = item.OID })</i><br />
+                <i class="bi bi-clock"> @Html.ActionLink("Köridők", "List", "Korido", new { chipkod = item.ChipKod })</i><br />
+                <i class="bi bi-pencil-square"> @Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID })</i><br />
+                <i class="bi bi-trash"> @Html.ActionLink("Törlés", "Delete", new { oid = item.OID })</i>
+</td>
 		</tr>
 		}
 	</tbody>

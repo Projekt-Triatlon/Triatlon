@@ -4,9 +4,8 @@
 	ViewData["Title"] = "Verseny létrehozása";
 }
 
-<h1>Új verseny létrehozása</h1>
-
-<h4>Verseny létrehozása</h4>
+<br />
+<h2><i class="bi bi-file-earmark-plus"></i> Új verseny</h2>
 <hr />
 <div>
 	<div>
@@ -43,8 +42,8 @@
 				<span asp-validation-for="FTavolsag" class="text-danger"></span>
 			</div>
             <div class="form-group">
-                <input type="submit" value="Hozzáadás" class="btn btn-primary" />
                 <a class="btn btn-primary" asp-action="Index"><i class="bi bi-box-arrow-left"></i></a>
+                <input type="submit" value="Mentés" class="btn btn-primary" />
             </div>
 		</form>
 	</div>

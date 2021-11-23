@@ -5,11 +5,10 @@
     ViewData["Title"] = "Részletek";
 }
 
-<h1>Részletek</h1>
-
+<br />
+<h2><i class="bi bi-search"></i> Eredmény részletei</h2>
+<hr />
 <div>
-    <h4>Eredmények</h4>
-    <hr />
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.VersenyzoNev)
@@ -75,8 +74,8 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Szerkesztés", "Edit", new { oid = Model.OID }) |
-    <a asp-action="Index">Vissza a listára</a>
+    <a class="btn btn-primary" asp-action="Index"><i class="bi bi-box-arrow-left"></i> </a>
+    @Html.ActionLink("Szerkesztés", "Edit", new { oid = Model.OID })
 </div>
 <br />
 <br />

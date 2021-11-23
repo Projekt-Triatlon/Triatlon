@@ -22,18 +22,20 @@ namespace TriatlonDataAccess.Context
 		{
 			modelBuilder.Entity<Verseny>()
 			.HasMany(e => e.VersenyVersenyzok)
-			.WithOne(e => e.Verseny)
-			.OnDelete(DeleteBehavior.Restrict);
+			.WithOne(e => e.Verseny);
+			//.OnDelete(DeleteBehavior.Restrict);
 
 			modelBuilder.Entity<VersenyVersenyzo>()
 			.HasMany(e => e.Koridok)
-			.WithOne(e => e.VersenyVersenyzo)
-			.OnDelete(DeleteBehavior.Restrict);
+			.WithOne(e => e.VersenyVersenyzo);
+			//.OnDelete(DeleteBehavior.Restrict);
 
 			modelBuilder.Entity<Versenyzo>()
 			.HasMany(e => e.VersenyVersenyzok)
-			.WithOne(e => e.Versenyzo)
-			.OnDelete(DeleteBehavior.Restrict);
+			.WithOne(e => e.Versenyzo);
+			//.OnDelete(DeleteBehavior.Restrict);
+
+
 
 		}
 	}

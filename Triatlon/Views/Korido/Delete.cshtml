@@ -1,0 +1,45 @@
+﻿@model TriatlonLogic.Models.Korido
+
+@{
+	ViewData["Title"] = "Törlés";
+}
+
+<h1>Törlés</h1>
+
+<h3>Biztosan törölni szeretné?</h3>
+<div>
+	<h4>Köridő</h4>
+	<hr />
+	<dl class="row">
+		<dt class = "col-sm-2">
+			@Html.DisplayNameFor(model => model.ChipKod)
+		</dt>
+		<dd class = "col-sm-10">
+			@Html.DisplayFor(model => model.ChipKod)
+		</dd>
+		<dt class = "col-sm-2">
+			@Html.DisplayNameFor(model => model.Szakasz)
+		</dt>
+		<dd class = "col-sm-10">
+			@Html.DisplayFor(model => model.Szakasz)
+		</dd>
+		<dt class = "col-sm-2">
+			@Html.DisplayNameFor(model => model.KorSzama)
+		</dt>
+		<dd class = "col-sm-10">
+			@Html.DisplayFor(model => model.KorSzama)
+		</dd>
+		<dt class = "col-sm-2">
+			@Html.DisplayNameFor(model => model.Ido)
+		</dt>
+		<dd class = "col-sm-10">
+			@Html.DisplayFor(model => model.Ido)
+		</dd>
+	</dl>
+	
+	<form asp-action="Delete">
+		<input type="hidden" asp-for="OID" />
+		<input type="submit" value="Törlés" class="btn btn-danger" /> |
+		<a href='javascript:history.go(-1)'>Vissza a köridőkhöz</a>
+	</form>
+</div>

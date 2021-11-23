@@ -14,8 +14,10 @@ namespace TriatlonLogic.DataTransferObjects
 
 		public string ChipKod { get; set; }
 
+		public long Rajtszam { get; set; }
+
 		public TimeSpan UszasIdo { get; set; }
-		
+
 		public TimeSpan Depo1Ido { get; set; }
 
 		public TimeSpan KerekparIdo { get; set; }
@@ -23,6 +25,9 @@ namespace TriatlonLogic.DataTransferObjects
 		public TimeSpan Depo2Ido { get; set; }
 
 		public TimeSpan FutasIdo { get; set; }
+
+		public TimeSpan CelIdo { get; set; }
+
 
 		public long VersenyzoOID { get; set; }
 

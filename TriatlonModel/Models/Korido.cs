@@ -14,6 +14,10 @@ namespace TriatlonLogic.Models
 		[Key]
 		public long OID { get; set; }
 
+		[ForeignKey("ChipKod")]
+		[DisplayName("Chip kód")]
+		public string ChipKod { get; set; }
+
 		[Required]
 		[DisplayName("Szakasz")]
 		public string Szakasz { get; set; }
@@ -22,9 +26,8 @@ namespace TriatlonLogic.Models
 		[DisplayName("Kör száma")]
 		public long KorSzama { get; set; }
 
-		[DisplayName("Köridő")]
-		public DateTime Ido { get; set; }
-
+		[DisplayName("Köridő [hh:min:sec]")]
+		public TimeSpan Ido { get; set; }
 		public long VersenyVersenyzoOID { get; set; }
 
 		[ForeignKey("VersenyVersenyzoOID")]

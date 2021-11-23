@@ -1,0 +1,50 @@
+﻿@model TriatlonLogic.Models.Korido
+
+@{
+	ViewData["Title"] = "Szerkesztés";
+}
+
+<h1>Szerkesztés</h1>
+
+<h4>Köridő</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Edit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="OID" />
+			<div class="form-group">
+				<label asp-for="ChipKod" class="control-label"></label>
+				<input asp-for="ChipKod" class="form-control" />
+				<span asp-validation-for="ChipKod" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Szakasz" class="control-label"></label>
+				<input asp-for="Szakasz" class="form-control" />
+				<span asp-validation-for="Szakasz" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="KorSzama" class="control-label"></label>
+				<input asp-for="KorSzama" class="form-control" />
+				<span asp-validation-for="KorSzama" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Ido" class="control-label"></label>
+				<input asp-for="Ido" class="form-control" />
+				<span asp-validation-for="Ido" class="text-danger"></span>
+			</div>
+			<input type="hidden" asp-for="VersenyVersenyzoOID" />
+			<div class="form-group">
+				<input type="submit" value="Mentés" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<div>
+	<a href='javascript:history.go(-1)'>Vissza a köridőkhöz</a>
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

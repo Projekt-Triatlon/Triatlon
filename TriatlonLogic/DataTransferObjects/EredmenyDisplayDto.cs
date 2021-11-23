@@ -10,15 +10,39 @@ namespace TriatlonLogic.DataTransferObjects
 	public class EredmenyDisplayDto
 	{
 		public long OID { get; set; }
-		public string VersenyNev { get; set; }
+		//public string VersenyNev { get; set; }
+
+		[DisplayName("Versenyző")]
 		public string VersenyzoNev { get; set; }
+
+		[DisplayName("Egyesület")]
+		public string Egyesulet { get; set; }
+
+		[DisplayName("Chip kód")]
 		public string ChipKod { get; set; }
+
+		[DisplayName("Rajtszám")]
+		public long Rajtszam { get; set; }
+
+		[DisplayName("Úszás idő")]
 		public TimeSpan UszasIdo { get; set; }
+
+		[DisplayName("Depó 1 idő")]
 		public TimeSpan Depo1Ido { get; set; }
+
+		[DisplayName("Kerékpár idő")]
 		public TimeSpan KerekparIdo { get; set; }
+
+		[DisplayName("Depó 2 idő")]
 		public TimeSpan Depo2Ido { get; set; }
+
+		[DisplayName("Futás idő")]
 		public TimeSpan FutasIdo { get; set; }
-		
-		
+
+		[DisplayName("Cél idő")]
+		public TimeSpan CelIdo { get; set; }
+		//public long AbszolutHelyezes { get; set; }
+
+
 	}
 }

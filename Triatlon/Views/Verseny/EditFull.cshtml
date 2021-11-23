@@ -19,6 +19,11 @@
 				<span asp-validation-for="Nev" class="text-danger"></span>
 			</div>
 			<div class="form-group">
+				<label asp-for="Helyszin" class="control-label"></label>
+				<input asp-for="Helyszin" class="form-control" />
+				<span asp-validation-for="Helyszin" class="text-danger"></span>
+			</div>
+			<div class="form-group">
 				<label asp-for="Datum" class="control-label"></label>
 				<input asp-for="Datum" class="form-control" />
 				<span asp-validation-for="Datum" class="text-danger"></span>
@@ -41,10 +46,10 @@
 				</select>
 			</div>
 			@*<div class="form-group form-check">
-				<label class="form-check-label">
-					<input class="form-check-input" asp-for="UNeopren" /> @Html.DisplayNameFor(model => model.UNeopren)
-				</label>
-			</div>*@
+					<label class="form-check-label">
+						<input class="form-check-input" asp-for="UNeopren" /> @Html.DisplayNameFor(model => model.UNeopren)
+					</label>
+				</div>*@
 			<div class="form-group">
 				<label asp-for="UTipus" class="control-label"></label>
 				<input asp-for="UTipus" class="form-control" />

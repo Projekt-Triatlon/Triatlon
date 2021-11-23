@@ -37,15 +37,12 @@
 				<input asp-for="FTavolsag" class="form-control" />
 				<span asp-validation-for="FTavolsag" class="text-danger"></span>
 			</div>
-			<div class="form-group">
-				<input type="submit" value="Hozzáadás" class="btn btn-primary" />
-			</div>
+            <div class="form-group">
+                <input type="submit" value="Hozzáadás" class="btn btn-primary" />
+                <a class="btn btn-primary" asp-action="Index"><i class="bi bi-box-arrow-left"></i></a>
+            </div>
 		</form>
 	</div>
-</div>
-
-<div>
-	<a asp-action="Index">Vissza a versenyek listájára</a>
 </div>
 
 @section Scripts {

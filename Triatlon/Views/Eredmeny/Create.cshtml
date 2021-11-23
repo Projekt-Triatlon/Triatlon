@@ -54,16 +54,14 @@
 				<input asp-for="FutasIdo" type="time" value="00:00:00.001"  class="form-control" />
 				<span asp-validation-for="FutasIdo" class="text-danger"></span>
 			</div>
-			<div class="form-group">
-				<input type="submit" value="Hozzáadás" class="btn btn-primary" />
-			</div>
+            <div class="form-group">
+                <input type="submit" value="Hozzáadás" class="btn btn-primary" />
+                <a class="btn btn-primary" asp-action="Index"><i class="bi bi-box-arrow-left"></i></a>
+            </div>
 		</form>
 	</div>
 </div>
 
-<div>
-	<a asp-action="Index">Vissza a listára</a>
-</div>
 
 @section Scripts {
 	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

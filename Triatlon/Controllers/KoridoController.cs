@@ -35,7 +35,7 @@ namespace Triatlon.Controllers
 					if (fileExtension != ".csv")
 					{
 						ViewBag.Message = "Csak .csv kiterjesztésű fájlt adhat meg!";
-						return RedirectToAction("Index", "Eredmeny", new { area = "" });
+						return RedirectToAction("Select", "Eredmeny", new { area = "" });
 					}
 
 					var koridoManager = TDI.Resolve<KoridoManager>();
@@ -61,7 +61,7 @@ namespace Triatlon.Controllers
 						}
 					}
 
-					return RedirectToAction("Index", "Eredmeny", new { area = "" });
+					return RedirectToAction("Select", "Eredmeny", new { area = "" });
 				}
 				catch (Exception ex)
 				{
@@ -72,13 +72,13 @@ namespace Triatlon.Controllers
 			{
 				ViewBag.Message = "Kérem válassza ki a CSV fájlt először.";
 			}
-			return RedirectToAction("Index", "Eredmeny", new { area = "" });
+			return RedirectToAction("Select", "Eredmeny", new { area = "" });
 		}
 
-		public ActionResult List(string chipkod)
+		public ActionResult List(long oid)
 		{
 			var koridoManager = TDI.Resolve<KoridoManager>();
-			var koridok = koridoManager.GetKoridok(chipkod);
+			var koridok = koridoManager.GetKoridok(oid);
 
 			return View(koridok);
 		}
@@ -118,7 +118,7 @@ namespace Triatlon.Controllers
 				koridoManager.Add(korido);
 
 				//return RedirectToAction(nameof(Index));
-				return RedirectToAction("Index", "Eredmeny", new { area = "" });
+				return RedirectToAction("Select", "Eredmeny", new { area = "" });
 			}
 			catch
 			{
@@ -157,7 +157,7 @@ namespace Triatlon.Controllers
 				koridoManager.Update(tempKorido);
 
 				//return RedirectToAction(nameof(Index));
-				return RedirectToAction("Index", "Eredmeny", new { area = "" });
+				return RedirectToAction("Select", "Eredmeny", new { area = "" });
 			}
 			catch
 			{
@@ -185,7 +185,7 @@ namespace Triatlon.Controllers
 				koridoManager.Delete(oid);
 
 				//return RedirectToAction(Request.UrlReferrer.ToString());
-				return RedirectToAction("Index", "Eredmeny", new { area = "" });
+				return RedirectToAction("Select", "Eredmeny", new { area = "" });
 			}
 
 			catch

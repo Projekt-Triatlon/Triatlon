@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,19 @@ namespace TriatlonLogic.Managers
 			//ORDER BY CELIDO
 			var eredmenyRepository = TDI.Resolve<IVersenyVersenyzoRepository>();
 			var eredmenyList = eredmenyRepository.GetAll().ToList();
+
+			return eredmenyList;
+		}
+
+		public List<VersenyVersenyzo> GetSelected(string oid)
+		{
+			var szam = Convert.ToInt32(oid);
+			var eredmenyRepository = TDI.Resolve<IVersenyVersenyzoRepository>();
+			var eredmenyList = eredmenyRepository.GetAll()
+				.Include(x => x.Verseny)
+				.Where(x => x.VersenyOID == szam)
+				.OrderBy(x => x.CelIdo)
+				.ToList();
 
 			return eredmenyList;
 		}
@@ -49,6 +63,27 @@ namespace TriatlonLogic.Managers
 
 			result.VersenySelectList = versenySelectList;
 			result.VersenyzoSelectList = versenyzoSelectList;
+
+
+			return result;
+		}
+
+		public EredmenySelectDto GetEredmenySelectDto()
+		{
+			var versenyRepository = TDI.Resolve<IVersenyRepository>();
+			var versenyek = versenyRepository.GetAll();
+
+			var result = new EredmenySelectDto();
+
+			var versenySelectList = versenyek
+										.Select(x => new SelectListItem()
+										{
+											Text = x.Nev,
+											Value = x.OID.ToString()
+										})
+										.ToList();
+
+			result.VersenySelectList = versenySelectList;
 
 
 			return result;

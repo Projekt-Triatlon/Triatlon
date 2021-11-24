@@ -20,35 +20,15 @@ namespace TriatlonLogic.Managers
 			return koridoList;
 		}
 
-		public List<Korido> GetKoridok(string chipkod)
+		public List<Korido> GetKoridok(long oid)
 		{
 			var koridoRepository = TDI.Resolve<IKoridoRepository>();
 			var koridoList = koridoRepository.GetAll()
 				.Include(x => x.VersenyVersenyzo)
-				.Where(x => x.ChipKod == chipkod)
+				.Where(x => x.VersenyVersenyzoOID == oid)
 				.ToList();
 
 			return koridoList;
-
-			//var query = koridoRepository.GetAll()
-			//	.Include(x => x.Landmark)
-			//	.Include(x => x.Landmark.City)
-			//	.Include(x => x.Landmark.City.Country)
-			//	.Where(x => x.VisitedAt > dateToUse)
-			//	.ToList()
-			//	.GroupBy(x => x.Landmark.CityOID)
-			//	.Select(x => new CityVisitCountDto()
-			//	{
-			//		CountryName = x.FirstOrDefault().Landmark.City.Country.Name,
-			//		Name = x.FirstOrDefault().Landmark.City.Name,
-			//		Longitude = x.FirstOrDefault().Landmark.City.Longitude,
-			//		Latitude = x.FirstOrDefault().Landmark.City.Latitude,
-			//		RequestedDate = dateToUse,
-			//		VisitCountSince = x.Count()
-			//	})
-			//	.ToList();
-
-			//return query;
 		}
 
 		public Korido Get(long oid)

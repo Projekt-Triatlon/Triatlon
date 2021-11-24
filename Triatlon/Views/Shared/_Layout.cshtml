@@ -1,51 +1,61 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Triatlon weboldal</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - Triatlon weboldal</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
 <body>
-    <div>
-        <header class="d-flex flex-wrap text-white bg-dark p-3">
+	<div>
+		<header class="d-flex flex-wrap text-white bg-dark p-3">
 
-            <a href="Home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                <span class="fs-4"><i class="bi bi-people"></i><i class="fas fa-biking"></i>TRIATLON</span>
-            </a>
-            <ul class="nav nav-pills text-white">
-                <li class="nav-item"><a asp-controller="Verseny" asp-action="Index" class="nav-link">Versenyek</a></li>
-                <li class="nav-item"><a asp-controller="Versenyzo" asp-action="Index" class="nav-link">Versenyzők</a></li>
-                <li class="nav-item"><a asp-controller="Eredmeny" asp-action="Index" class="nav-link">Eredmények</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Kapcsolat</a></li>
-            </ul>
-            <div class="col-md-3 text-end">
-                <button type="button" class="btn btn-outline-light me-2">Bejelentkezés</button>
-                <button type="button" class="btn btn-light">Regisztráció</button>
-            </div>
+			<a asp-controller="Home" asp-action="Index" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+				<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+				<span class="fs-4"><i class="bi bi-people"></i><i class="fas fa-biking"></i>TRIATLON</span>
+			</a>
+			<ul class="nav nav-pills text-white">
+				<li class="nav-item"><a asp-controller="Verseny" asp-action="Index" class="nav-link">Versenyek</a></li>
+				<li class="nav-item"><a asp-controller="Versenyzo" asp-action="Index" class="nav-link">Versenyzők</a></li>
+				<li class="nav-item"><a asp-controller="Eredmeny" asp-action="Select" class="nav-link">Eredmények</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Kapcsolat</a></li>
+			</ul>
+			<div class="col-md-3 text-end">
+				<button type="button" class="btn btn-outline-light me-2">Bejelentkezés</button>
+				<button type="button" class="btn btn-light">Regisztráció</button>
+			</div>
 
-        </header>
-    </div>
+		</header>
+	</div>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Triatlon weboldal @*<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+	<footer class="border-top footer text-muted">
+		<div class="container">
+			&copy; 2021 - Triatlon weboldal @*<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+		</div>
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script type="text/javascript">
+		//TODO: lehetne onClick is
+		$('#DropDownL').change(function() {
+			var ddlValue = $(this).val();
+
+			$('#Link').attr('href', function() {
+				return this.href.replace("ListValue", ddlValue);
+			});
+		});
+	</script>
+	@RenderSection("Scripts", required: false)
 </body>
 </html>

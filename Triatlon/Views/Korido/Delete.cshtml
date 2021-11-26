@@ -1,40 +1,40 @@
 ﻿@model TriatlonLogic.Models.Korido
 
 @{
-	ViewData["Title"] = "Törlés";
+    ViewData["Title"] = "Törlés";
 }
 
-<h1>Törlés</h1>
+<br />
+<h2><i class="bi bi-trash"></i> Köridő törlése</h2>
 
-<h3>Biztosan törölni szeretné?</h3>
+<h3><i class="bi bi-exclamation-triangle"></i> Biztos, hogy törölni szeretné?</h3>
+<hr />
 <div>
-	<h4>Köridő</h4>
-	<hr />
-	<dl class="row">
-		<dt class = "col-sm-2">
-			@Html.DisplayNameFor(model => model.Szakasz)
-		</dt>
-		<dd class = "col-sm-10">
-			@Html.DisplayFor(model => model.Szakasz)
-		</dd>
-		<dt class = "col-sm-2">
-			@Html.DisplayNameFor(model => model.KorSzama)
-		</dt>
-		<dd class = "col-sm-10">
-			@Html.DisplayFor(model => model.KorSzama)
-		</dd>
-		<dt class = "col-sm-2">
-			@Html.DisplayNameFor(model => model.Ido)
-		</dt>
-		<dd class = "col-sm-10">
-			@Html.DisplayFor(model => model.Ido)
-		</dd>
-	</dl>
-	
-	<form asp-action="Delete">
-		<input type="hidden" asp-for="OID" />
-		<input type="hidden" asp-for="VersenyVersenyzoOID" />
-		<input type="submit" value="Törlés" class="btn btn-danger" /> |
-		<a href='javascript:history.go(-1)'>Vissza a köridőkhöz</a>
-	</form>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Szakasz)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Szakasz)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KorSzama)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KorSzama)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ido)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ido)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <a class="btn btn-primary" href="javascript:history.go(-1)"><i class="bi bi-box-arrow-left"></i> </a>
+        <input type="hidden" asp-for="OID" />
+        <input type="hidden" asp-for="VersenyVersenyzoOID" />
+        <input type="submit" value="Törlés" class="btn btn-danger" />
+    </form>
 </div>

@@ -4,9 +4,8 @@
 	ViewData["Title"] = "Szerkesztés";
 }
 
-<h1>Szerkesztés</h1>
-
-<h4>Köridő</h4>
+<br />
+<h2><i class="bi bi-pencil-square"></i> Köridő szerkesztése</h2>
 <hr />
 <div class="row">
 	<div class="col-md-4">
@@ -29,16 +28,15 @@
 				<span asp-validation-for="Ido" class="text-danger"></span>
 			</div>
 			<input type="hidden" asp-for="VersenyVersenyzoOID" />
-			<div class="form-group">
-				<input type="submit" value="Mentés" class="btn btn-primary" />
-			</div>
+            <div class="form-group">
+                <a class="btn btn-primary" href="javascript:history.go(-1)"><i class="bi bi-box-arrow-left"></i></a>
+                <input type="submit" value="Mentés" class="btn btn-primary" />
+            </div>
 		</form>
 	</div>
 </div>
-
-<div>
-	<a href='javascript:history.go(-1)'>Vissza a köridőkhöz</a>
-</div>
+<br />
+<br />
 
 @section Scripts {
 	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

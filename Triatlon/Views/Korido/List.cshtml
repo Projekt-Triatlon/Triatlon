@@ -8,7 +8,7 @@
 <h2><i class="bi bi-clock"></i> Köridők</h2>
 <hr />
 <p>
-	<a class="btn btn-primary" asp-controller="Eredmeny" asp-action="Select"><i class="bi bi-box-arrow-left"></i> </a>
+	<a class="btn btn-primary" href='javascript:history.go(-1)'><i class="bi bi-box-arrow-left"></i> </a>
 	<a type="button" asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Új köridő</a>
 	<div><b>Köridők betöltése CSV fájlból: </b></div>
 	@using (Html.BeginForm("Index", "Korido", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -36,9 +36,6 @@
 			<th>
 				@Html.DisplayNameFor(model => model.Ido)
 			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.ChipKod)
-			</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -54,9 +51,6 @@
 			</td>
 			<td>
 				@Html.DisplayFor(modelItem => item.Ido)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.ChipKod)
 			</td>
 			<td>
 				@Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID }) |

@@ -15,7 +15,6 @@ namespace TriatlonLogic.Managers
 	{
 		public List<VersenyVersenyzo> GetAll()
 		{
-			//ORDER BY CELIDO
 			var eredmenyRepository = TDI.Resolve<IVersenyVersenyzoRepository>();
 			var eredmenyList = eredmenyRepository.GetAll().ToList();
 
@@ -106,7 +105,6 @@ namespace TriatlonLogic.Managers
 
 			var versenyRepository = TDI.Resolve<IVersenyRepository>();
 			var verseny = versenyRepository.Get(eredmeny.VersenyOID);
-
 
 
 			var eredmenyDisplayDto = new EredmenyDisplayDto();

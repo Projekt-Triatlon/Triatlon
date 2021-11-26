@@ -24,6 +24,23 @@ namespace Triatlon.Controllers
 
 		}
 
+		
+
+		public ActionResult List(string oid)
+		{
+			try
+			{
+				var eredmenyManager = TDI.Resolve<EredmenyManager>();
+				var eredmenyek = eredmenyManager.GetSelected(oid);
+
+				return View(eredmenyek);
+			}
+			catch
+			{
+				return View();
+			}
+		}
+
 		[HttpPost]
 		public ActionResult Index(IFormFile postedFile)
 		{
@@ -36,7 +53,7 @@ namespace Triatlon.Controllers
 					if (fileExtension != ".csv")
 					{
 						ViewBag.Message = "Csak .csv kiterjesztésű fájlt adhat meg!";
-						return RedirectToAction("Select", "Eredmeny", new { area = "" });
+						return RedirectToAction("Select", "Eredmeny");
 					}
 
 
@@ -53,7 +70,6 @@ namespace Triatlon.Controllers
 
 							eredmenyManager.Add(new VersenyVersenyzo
 							{
-								//OID = Int64.Parse(rows[0].ToString()),
 								ChipKod = rows[0].ToString(),
 								Rajtszam = Int64.Parse(rows[1].ToString()),
 								UszasIdo = TimeSpan.Parse(rows[2].ToString()),
@@ -71,7 +87,7 @@ namespace Triatlon.Controllers
 						}
 					}
 
-					return RedirectToAction("Select", "Eredmeny", new { area = "" });
+					return RedirectToAction("Select", "Eredmeny");
 				}
 				catch (Exception ex)
 				{
@@ -82,22 +98,7 @@ namespace Triatlon.Controllers
 			{
 				ViewBag.Message = "Kérem válassza ki a CSV fájlt először.";
 			}
-			return RedirectToAction("Select", "Eredmeny", new { area = "" });
-		}
-
-		public ActionResult List(string oid)
-		{
-			try
-			{
-				var eredmenyManager = TDI.Resolve<EredmenyManager>();
-				var eredmenyek = eredmenyManager.GetSelected(oid);
-
-				return View(eredmenyek);
-			}
-			catch
-			{
-				return View();
-			}
+			return RedirectToAction("Select", "Eredmeny");
 		}
 
 		// GET: EredmenyController/Details/5
@@ -109,15 +110,13 @@ namespace Triatlon.Controllers
 			return View(eredmeny);
 		}
 
-
-
-
 		public ActionResult Create()
 		{
 			var eredmenyManager = TDI.Resolve<EredmenyManager>();
 			var eredmenyCreateDto = eredmenyManager.GetEredmenyCreateDto();
 
 			return View(eredmenyCreateDto);
+			
 		}
 
 
@@ -142,7 +141,7 @@ namespace Triatlon.Controllers
 				var eredmenyManager = TDI.Resolve<EredmenyManager>();
 				eredmenyManager.Add(eredmeny);
 
-				return RedirectToAction("Select", "Eredmeny", new { area = "" });
+				return RedirectToAction("List", "Eredmeny", new { oid = eredmeny.VersenyOID });
 			}
 			catch
 			{
@@ -179,13 +178,14 @@ namespace Triatlon.Controllers
 					Depo2Ido = TimeSpan.Parse(collection["Depo2Ido"]),
 					FutasIdo = TimeSpan.Parse(collection["FutasIdo"]),
 					CelIdo = TimeSpan.Parse(collection["CelIdo"]),
-					//VersenyzoOID = Convert.ToInt32(collection["VersenyzoOID"]),
-					//VersenyOID = Convert.ToInt32(collection["VersenyOID"]),
+					VersenyzoOID = Convert.ToInt32(collection["VersenyzoOID"]),
+					VersenyOID = Convert.ToInt32(collection["VersenyOID"]),
 				};
 
 				eredmenyManager.Update(tempEredmeny);
 
-				return RedirectToAction("Select", "Eredmeny", new { area = "" });
+				return RedirectToAction("List", "Eredmeny", new { oid = tempEredmeny.VersenyOID } );
+
 			}
 			catch
 			{
@@ -210,10 +210,10 @@ namespace Triatlon.Controllers
 			try
 			{
 				var eredmenyManager = TDI.Resolve<EredmenyManager>();
-				//eredmenyManager.SetDeleted(oid);
+				int versenyoid = Convert.ToInt32(collection["VersenyOID"]);
 				eredmenyManager.Delete(oid);
 
-				return RedirectToAction("Select", "Eredmeny", new { area = "" });
+				return RedirectToAction("List", "Eredmeny", new { oid = versenyoid });
 			}
 			catch
 			{

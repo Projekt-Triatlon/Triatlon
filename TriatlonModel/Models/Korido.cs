@@ -14,10 +14,6 @@ namespace TriatlonLogic.Models
 		[Key]
 		public long OID { get; set; }
 
-		[ForeignKey("ChipKod")]
-		[DisplayName("Chip kód")]
-		public string ChipKod { get; set; }
-
 		[Required]
 		[DisplayName("Szakasz")]
 		public string Szakasz { get; set; }

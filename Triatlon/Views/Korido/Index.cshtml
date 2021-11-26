@@ -8,15 +8,12 @@
 <h2><i class="bi bi-clock"></i> Köridők</h2>
 <hr />
 <p>
-    <a class="btn btn-primary" asp-controller="Eredmeny" asp-action="Index"><i class="bi bi-box-arrow-left"></i> </a>
-    <a type="button" asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Új köridő</a>
+	<a class="btn btn-primary" href='javascript:history.go(-1)'><i class="bi bi-box-arrow-left"></i> </a>
+	<a type="button" asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Új köridő</a>
 </p>
 <table class="table">
 	<thead>
 		<tr>
-			<th>
-				@Html.DisplayNameFor(model => model.ChipKod)
-			</th>
 			<th>
 				@Html.DisplayNameFor(model => model.Szakasz)
 			</th>
@@ -32,9 +29,6 @@
 	<tbody>
 @foreach (var item in Model) {
 		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.ChipKod)
-			</td>
 			<td>
 				@Html.DisplayFor(modelItem => item.Szakasz)
 			</td>

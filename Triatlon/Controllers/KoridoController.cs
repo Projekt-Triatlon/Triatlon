@@ -13,7 +13,6 @@ namespace Triatlon.Controllers
 {
 	public class KoridoController : Controller
 	{
-		// GET: KoridoController
 		public ActionResult Index()
 		{
 			var koridoManager = TDI.Resolve<KoridoManager>();
@@ -35,7 +34,7 @@ namespace Triatlon.Controllers
 					if (fileExtension != ".csv")
 					{
 						ViewBag.Message = "Csak .csv kiterjesztésű fájlt adhat meg!";
-						return RedirectToAction("Select", "Eredmeny", new { area = "" });
+						return Redirect(HttpContext.Request.Headers["Referer"]);
 					}
 
 					var koridoManager = TDI.Resolve<KoridoManager>();
@@ -50,18 +49,16 @@ namespace Triatlon.Controllers
 
 							koridoManager.Add(new Korido
 							{
-								//OID = Int64.Parse(rows[0].ToString()),
-								ChipKod = rows[0].ToString(),
-								Szakasz = rows[1].ToString(),
-								KorSzama = Int32.Parse(rows[2].ToString()),
-								Ido = TimeSpan.Parse(rows[3].ToString()),
-								VersenyVersenyzoOID = Int64.Parse(rows[4].ToString())
+								Szakasz = rows[0].ToString(),
+								KorSzama = Int32.Parse(rows[1].ToString()),
+								Ido = TimeSpan.Parse(rows[2].ToString()),
+								VersenyVersenyzoOID = Int64.Parse(rows[3].ToString())
 							});
 
 						}
 					}
 
-					return RedirectToAction("Select", "Eredmeny", new { area = "" });
+					return Redirect(HttpContext.Request.Headers["Referer"]);
 				}
 				catch (Exception ex)
 				{
@@ -72,7 +69,7 @@ namespace Triatlon.Controllers
 			{
 				ViewBag.Message = "Kérem válassza ki a CSV fájlt először.";
 			}
-			return RedirectToAction("Select", "Eredmeny", new { area = "" });
+			return Redirect(HttpContext.Request.Headers["Referer"]);
 		}
 
 		public ActionResult List(long oid)
@@ -83,7 +80,6 @@ namespace Triatlon.Controllers
 			return View(koridok);
 		}
 
-		// GET: KoridoController/Details/5
 		public ActionResult Details(int oid)
 		{
 			var koridoManager = TDI.Resolve<KoridoManager>();
@@ -92,13 +88,11 @@ namespace Triatlon.Controllers
 			return View(koridok);
 		}
 
-		// GET: KoridoController/Create
 		public ActionResult Create()
 		{
 			return View(new Korido());
 		}
 
-		// POST: KoridoController/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public ActionResult Create(IFormCollection collection)
@@ -107,7 +101,6 @@ namespace Triatlon.Controllers
 			{
 				var korido = new Korido()
 				{
-					ChipKod = collection["ChipKod"],
 					Szakasz = collection["Szakasz"],
 					KorSzama = Convert.ToInt32(collection["KorSzama"]),
 					Ido = TimeSpan.Parse(collection["Ido"]),
@@ -117,8 +110,7 @@ namespace Triatlon.Controllers
 				var koridoManager = TDI.Resolve<KoridoManager>();
 				koridoManager.Add(korido);
 
-				//return RedirectToAction(nameof(Index));
-				return RedirectToAction("Select", "Eredmeny", new { area = "" });
+				return RedirectToAction("List", "Korido", new { oid = collection["VersenyVersenyzoOID"] });
 			}
 			catch
 			{
@@ -126,7 +118,6 @@ namespace Triatlon.Controllers
 			}
 		}
 
-		// GET: KoridoController/Edit/5
 		public ActionResult Edit(int oid)
 		{
 			var koridoManager = TDI.Resolve<KoridoManager>();
@@ -135,7 +126,6 @@ namespace Triatlon.Controllers
 			return View(koridok);
 		}
 
-		// POST: KoridoController/Edit/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public ActionResult Edit(int oid, IFormCollection collection)
@@ -147,7 +137,6 @@ namespace Triatlon.Controllers
 				var tempKorido = new Korido()
 				{
 					OID = oid,
-					ChipKod = collection["ChipKod"],
 					Szakasz = collection["Szakasz"],
 					KorSzama = Convert.ToInt32(collection["KorSzama"]),
 					Ido = TimeSpan.Parse(collection["Ido"]),
@@ -156,8 +145,7 @@ namespace Triatlon.Controllers
 
 				koridoManager.Update(tempKorido);
 
-				//return RedirectToAction(nameof(Index));
-				return RedirectToAction("Select", "Eredmeny", new { area = "" });
+				return RedirectToAction("List", "Korido", new { oid = tempKorido.VersenyVersenyzoOID });
 			}
 			catch
 			{
@@ -165,7 +153,6 @@ namespace Triatlon.Controllers
 			}
 		}
 
-		// GET: KoridoController/Delete/5
 		public ActionResult Delete(int oid)
 		{
 			var koridoManager = TDI.Resolve<KoridoManager>();
@@ -174,7 +161,6 @@ namespace Triatlon.Controllers
 			return View(koridok);
 		}
 
-		// POST: KoridoController/Delete/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public ActionResult Delete(int oid, IFormCollection collection)
@@ -182,10 +168,10 @@ namespace Triatlon.Controllers
 			try
 			{
 				var koridoManager = TDI.Resolve<KoridoManager>();
+				int vvoid = Convert.ToInt32(collection["VersenyVersenyzoOID"]);
 				koridoManager.Delete(oid);
 
-				//return RedirectToAction(Request.UrlReferrer.ToString());
-				return RedirectToAction("Select", "Eredmeny", new { area = "" });
+				return RedirectToAction("List", "Korido", new { oid = vvoid });
 			}
 
 			catch

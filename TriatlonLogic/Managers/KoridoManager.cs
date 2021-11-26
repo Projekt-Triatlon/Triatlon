@@ -45,7 +45,6 @@ namespace TriatlonLogic.Managers
 
 			var koridoDisplayDto = new KoridoDisplayDto();
 			koridoDisplayDto.OID = korido.OID;
-			koridoDisplayDto.ChipKod = korido.ChipKod;
 			koridoDisplayDto.Szakasz = korido.Szakasz;
 			koridoDisplayDto.KorSzama = korido.KorSzama;
 			koridoDisplayDto.Ido = korido.Ido;
@@ -66,7 +65,6 @@ namespace TriatlonLogic.Managers
 			var koridoRepository = TDI.Resolve<IKoridoRepository>();
 			var korido = koridoRepository.Get(tempKorido.OID);
 
-			korido.ChipKod = tempKorido.ChipKod;
 			korido.Szakasz = tempKorido.Szakasz;
 			korido.KorSzama = tempKorido.KorSzama;
 			korido.Ido = tempKorido.Ido;

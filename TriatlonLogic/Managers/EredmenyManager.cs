@@ -117,10 +117,11 @@ namespace TriatlonLogic.Managers
 			eredmenyDisplayDto.Depo2Ido = eredmeny.Depo2Ido;
 			eredmenyDisplayDto.FutasIdo = eredmeny.FutasIdo;
 			eredmenyDisplayDto.CelIdo = eredmeny.CelIdo;
+			eredmenyDisplayDto.AbszolutHelyezes = eredmeny.AbszolutHelyezes;
 
 			eredmenyDisplayDto.VersenyzoNev = versenyzo.Nev;
 			eredmenyDisplayDto.Egyesulet = versenyzo.Egyesulet;
-			//eredmenyDisplayDto.VersenyNev = verseny.Nev;
+			eredmenyDisplayDto.VersenyNev = verseny.Nev;
 
 			return eredmenyDisplayDto;
 		}
@@ -144,6 +145,7 @@ namespace TriatlonLogic.Managers
 			eredmeny.Depo2Ido = tempEredmeny.Depo2Ido;
 			eredmeny.FutasIdo = tempEredmeny.FutasIdo;
 			eredmeny.CelIdo = tempEredmeny.CelIdo;
+			eredmeny.AbszolutHelyezes = tempEredmeny.AbszolutHelyezes;
 
 			eredmenyRepository.Update(eredmeny);
 		}

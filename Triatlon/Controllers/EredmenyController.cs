@@ -24,7 +24,7 @@ namespace Triatlon.Controllers
 
 		}
 
-		
+
 
 		public ActionResult List(string oid)
 		{
@@ -32,6 +32,14 @@ namespace Triatlon.Controllers
 			{
 				var eredmenyManager = TDI.Resolve<EredmenyManager>();
 				var eredmenyek = eredmenyManager.GetSelected(oid);
+
+				int x = 1;
+				foreach (var item in eredmenyek)
+				{
+					item.AbszolutHelyezes = x;
+					eredmenyManager.Update(item);
+					x++;
+				}
 
 				return View(eredmenyek);
 			}
@@ -41,71 +49,68 @@ namespace Triatlon.Controllers
 			}
 		}
 
-		[HttpPost]
-		public ActionResult Index(IFormFile postedFile)
-		{
-			if (postedFile != null)
-			{
-				try
-				{
-					string fileExtension = Path.GetExtension(postedFile.FileName);
+		//public ActionResult Lista(string oid)
+		//{
+		//	try
+		//	{
+		//		var eredmenyManager = TDI.Resolve<EredmenyManager>();
+		//		var eredmenyek = eredmenyManager.GetSelected(oid);
 
-					if (fileExtension != ".csv")
-					{
-						ViewBag.Message = "Csak .csv kiterjesztésű fájlt adhat meg!";
-						return RedirectToAction("Select", "Eredmeny");
-					}
+		//		return View(eredmenyek);
+		//	}
+		//	catch
+		//	{
+		//		return View();
+		//	}
+		//}
 
 
-
-					var eredmenyManager = TDI.Resolve<EredmenyManager>();
-					var eredmenyek = new List<VersenyVersenyzo>();
-					using (var sreader = new StreamReader(postedFile.OpenReadStream()))
-					{
-
-						//string[] headers = sreader.ReadLine().Split(';');
-						while (!sreader.EndOfStream)
-						{
-							string[] rows = sreader.ReadLine().Split(';');
-
-							eredmenyManager.Add(new VersenyVersenyzo
-							{
-								ChipKod = rows[0].ToString(),
-								Rajtszam = Int64.Parse(rows[1].ToString()),
-								UszasIdo = TimeSpan.Parse(rows[2].ToString()),
-								Depo1Ido = TimeSpan.Parse(rows[3].ToString()),
-								KerekparIdo = TimeSpan.Parse(rows[4].ToString()),
-								Depo2Ido = TimeSpan.Parse(rows[5].ToString()),
-								FutasIdo = TimeSpan.Parse(rows[6].ToString()),
-								CelIdo = TimeSpan.Parse(rows[7].ToString()),
-								AbszolutHelyezes = 0,
-								//AbszolutHelyezes = Int64.Parse(rows[8].ToString()),
-								VersenyzoOID = Int64.Parse(rows[8].ToString()),
-								VersenyOID = Int64.Parse(rows[9].ToString()),
-							});
-
-						}
-					}
-
-					return RedirectToAction("Select", "Eredmeny");
-				}
-				catch (Exception ex)
-				{
-					ViewBag.Message = ex.Message;
-				}
-			}
-			else
-			{
-				ViewBag.Message = "Kérem válassza ki a CSV fájlt először.";
-			}
-			return RedirectToAction("Select", "Eredmeny");
-		}
 
 		// GET: EredmenyController/Details/5
 		public ActionResult Details(int oid)
 		{
 			var eredmenyManager = TDI.Resolve<EredmenyManager>();
 			var eredmeny = eredmenyManager.GetEredmenyDisplayDto(oid);
+
+
+			switch (eredmeny.AbszolutHelyezes)
+			{
+				//120 96 77 61 49 39 31 25 20 16
+				case 1:
+					eredmeny.RanglistaPont = 120;
+					break;
+				case 2:
+					eredmeny.RanglistaPont = 96;
+					break;
+				case 3:
+					eredmeny.RanglistaPont = 77;
+					break;
+				case 4:
+					eredmeny.RanglistaPont = 61;
+					break;
+				case 5:
+					eredmeny.RanglistaPont = 49;
+					break;
+				case 6:
+					eredmeny.RanglistaPont = 39;
+					break;
+				case 7:
+					eredmeny.RanglistaPont = 31;
+					break;
+				case 8:
+					eredmeny.RanglistaPont = 25;
+					break;
+				case 9:
+					eredmeny.RanglistaPont = 20;
+					break;
+				case 10:
+					eredmeny.RanglistaPont = 16;
+					break;
+
+				default:
+					eredmeny.RanglistaPont = 0;
+					break;
+			}
 
 			return View(eredmeny);
 		}
@@ -116,7 +121,7 @@ namespace Triatlon.Controllers
 			var eredmenyCreateDto = eredmenyManager.GetEredmenyCreateDto();
 
 			return View(eredmenyCreateDto);
-			
+
 		}
 
 
@@ -180,11 +185,12 @@ namespace Triatlon.Controllers
 					CelIdo = TimeSpan.Parse(collection["CelIdo"]),
 					VersenyzoOID = Convert.ToInt32(collection["VersenyzoOID"]),
 					VersenyOID = Convert.ToInt32(collection["VersenyOID"]),
+
 				};
 
 				eredmenyManager.Update(tempEredmeny);
 
-				return RedirectToAction("List", "Eredmeny", new { oid = tempEredmeny.VersenyOID } );
+				return RedirectToAction("List", "Eredmeny", new { oid = tempEredmeny.VersenyOID });
 
 			}
 			catch
@@ -227,6 +233,67 @@ namespace Triatlon.Controllers
 			var eredmenySelectDto = eredmenyManager.GetEredmenySelectDto();
 
 			return View(eredmenySelectDto);
+		}
+
+
+		[HttpPost]
+		public ActionResult Index(IFormFile postedFile)
+		{
+			if (postedFile != null)
+			{
+				try
+				{
+					string fileExtension = Path.GetExtension(postedFile.FileName);
+
+					if (fileExtension != ".csv")
+					{
+						ViewBag.Message = "Csak .csv kiterjesztésű fájlt adhat meg!";
+						return RedirectToAction("Select", "Eredmeny");
+					}
+
+
+
+					var eredmenyManager = TDI.Resolve<EredmenyManager>();
+					var eredmenyek = new List<VersenyVersenyzo>();
+					using (var sreader = new StreamReader(postedFile.OpenReadStream()))
+					{
+
+						//string[] headers = sreader.ReadLine().Split(';');
+						while (!sreader.EndOfStream)
+						{
+							string[] rows = sreader.ReadLine().Split(';');
+
+							eredmenyManager.Add(new VersenyVersenyzo
+							{
+								ChipKod = rows[0].ToString(),
+								Rajtszam = Int64.Parse(rows[1].ToString()),
+								UszasIdo = TimeSpan.Parse(rows[2].ToString()),
+								Depo1Ido = TimeSpan.Parse(rows[3].ToString()),
+								KerekparIdo = TimeSpan.Parse(rows[4].ToString()),
+								Depo2Ido = TimeSpan.Parse(rows[5].ToString()),
+								FutasIdo = TimeSpan.Parse(rows[6].ToString()),
+								CelIdo = TimeSpan.Parse(rows[7].ToString()),
+								AbszolutHelyezes = 0,
+								//AbszolutHelyezes = Int64.Parse(rows[8].ToString()),
+								VersenyzoOID = Int64.Parse(rows[8].ToString()),
+								VersenyOID = Int64.Parse(rows[9].ToString()),
+							});
+
+						}
+					}
+
+					return RedirectToAction("Select", "Eredmeny");
+				}
+				catch (Exception ex)
+				{
+					ViewBag.Message = ex.Message;
+				}
+			}
+			else
+			{
+				ViewBag.Message = "Kérem válassza ki a CSV fájlt először.";
+			}
+			return RedirectToAction("Select", "Eredmeny");
 		}
 	}
 }

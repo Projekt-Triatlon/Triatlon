@@ -7,15 +7,15 @@ using System.Text;
 namespace TriatlonLogic.DataTransferObjects
 {
 
-	public class EredmenyDisplayDto
+	public class EredmenyDisplayDto2
 	{
 		public long OID { get; set; }
 
 		[DisplayName("Helyezés")]
 		public long AbszolutHelyezes { get; set; }
 
-		[DisplayName("Verseny")]
-		public string VersenyNev { get; set; }
+		[DisplayName("Rajtszám")]
+		public long Rajtszam { get; set; }
 
 		[DisplayName("Versenyző")]
 		public string VersenyzoNev { get; set; }
@@ -23,11 +23,9 @@ namespace TriatlonLogic.DataTransferObjects
 		[DisplayName("Egyesület")]
 		public string Egyesulet { get; set; }
 
+		//-
 		[DisplayName("Chip kód")]
 		public string ChipKod { get; set; }
-
-		[DisplayName("Rajtszám")]
-		public long Rajtszam { get; set; }
 
 		[DisplayName("Úszás idő")]
 		public TimeSpan UszasIdo { get; set; }
@@ -52,3 +50,5 @@ namespace TriatlonLogic.DataTransferObjects
 
 	}
 }
+
+

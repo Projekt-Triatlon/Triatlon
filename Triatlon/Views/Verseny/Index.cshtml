@@ -51,36 +51,39 @@
 		</tr>
 	</thead>
 	<tbody>
-@foreach (var item in Model) {
-		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.OID)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Nev)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Helyszin)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Datum)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.UTavolsag)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.KTavolsag)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.FTavolsag)
-			</td>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.OID)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Nev)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Helyszin)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Datum)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.UTavolsag)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.KTavolsag)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.FTavolsag)
+				</td>
 
-			<td>
-				<i class="bi bi-pencil-square"> @Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID })</i>
-				<i class="bi bi-search"> @Html.ActionLink("Részletes pályaadatok", "Details", new { oid = item.OID })</i>
-				<i class="bi bi-trash"> @Html.ActionLink("Törlés", "Delete", new { oid = item.OID })</i>
-			</td>
-		</tr>
-}
+				<td>
+					<i class="bi bi-pencil-square"> @Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID })</i>
+					<i class="bi bi-search"> @Html.ActionLink("Részletes pályaadatok", "Details", new { oid = item.OID })</i>
+					<i class="bi bi-trash"> @Html.ActionLink("Törlés", "Delete", new { oid = item.OID })</i>
+				</td>
+			</tr>
+		}
 	</tbody>
 </table>
+<br />
+<br />

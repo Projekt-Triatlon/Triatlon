@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TriatlonLogic.Models.VersenyVersenyzo>
+﻿@model IEnumerable<TriatlonLogic.DataTransferObjects.EredmenyDisplayDto2>
 
 @{ ViewData["Title"] = "Eredmények"; }
 
@@ -20,18 +20,20 @@
 <table class="table table-striped table-sm">
 	<thead>
 		<tr>
-			@*Versenyző neve, egyesület*@
+			<th>
+				@Html.DisplayNameFor(model => model.OID)
+			</th>
 			<th>
 				@Html.DisplayNameFor(model => model.AbszolutHelyezes)
 			</th>
-			@*<th>
-				@Html.DisplayNameFor(model => model.VersenyOID)
-				</th>*@
-			<th>
-				@Html.DisplayNameFor(model => model.VersenyzoOID)
-			</th>
 			<th>
 				@Html.DisplayNameFor(model => model.Rajtszam)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.VersenyzoNev)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Egyesulet)
 			</th>
 			<th>
 				@Html.DisplayNameFor(model => model.ChipKod)
@@ -55,7 +57,7 @@
 				@Html.DisplayNameFor(model => model.CelIdo)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.OID)
+				@Html.DisplayNameFor(model => model.RanglistaPont)
 			</th>
 			<th></th>
 		</tr>
@@ -64,18 +66,20 @@
 		@foreach (var item in Model)
 		{
 			<tr>
-				@*Versenyző neve, egyesület*@
+				<td>
+					@Html.DisplayFor(modelItem => item.OID)
+				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.AbszolutHelyezes)
 				</td>
-				@*<td>
-					@Html.DisplayFor(modelItem => item.VersenyOID)
-					</td>*@
-				<td>
-					@Html.DisplayFor(modelItem => item.VersenyzoOID)
-				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.Rajtszam)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.VersenyzoNev)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Egyesulet)
 				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.ChipKod)
@@ -99,7 +103,7 @@
 					@Html.DisplayFor(modelItem => item.CelIdo)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.OID)
+					@Html.DisplayFor(modelItem => item.RanglistaPont)
 				</td>
 				<td>
 					<i class="bi bi-search"> @Html.ActionLink("Részletek", "Details", new { oid = item.OID })</i>

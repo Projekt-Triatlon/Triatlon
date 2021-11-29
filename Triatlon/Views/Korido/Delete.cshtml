@@ -1,7 +1,7 @@
 ﻿@model TriatlonLogic.Models.Korido
 
 @{
-    ViewData["Title"] = "Törlés";
+	ViewData["Title"] = "Törlés";
 }
 
 <br />
@@ -10,31 +10,33 @@
 <h3><i class="bi bi-exclamation-triangle"></i> Biztos, hogy törölni szeretné?</h3>
 <hr />
 <div>
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Szakasz)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Szakasz)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.KorSzama)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.KorSzama)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Ido)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Ido)
-        </dd>
-    </dl>
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Szakasz)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Szakasz)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.KorSzama)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.KorSzama)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Ido)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Ido)
+		</dd>
+	</dl>
 
-    <form asp-action="Delete">
-        <a class="btn btn-primary" href="javascript:history.go(-1)"><i class="bi bi-box-arrow-left"></i> </a>
-        <input type="hidden" asp-for="OID" />
-        <input type="hidden" asp-for="VersenyVersenyzoOID" />
-        <input type="submit" value="Törlés" class="btn btn-danger" />
-    </form>
+	<form asp-action="Delete">
+		<a class="btn btn-primary" href="javascript:history.go(-1)"><i class="bi bi-box-arrow-left"></i> </a>
+		<input type="hidden" asp-for="OID" />
+		<input type="hidden" asp-for="VersenyVersenyzoOID" />
+		<input type="submit" value="Törlés" class="btn btn-danger" />
+	</form>
 </div>
+<br />
+<br />

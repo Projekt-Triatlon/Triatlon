@@ -42,22 +42,24 @@
 	<tbody>
 		@foreach (var item in Model)
 		{
-		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.Szakasz)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.KorSzama)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Ido)
-			</td>
-            <td>
-                <i class="bi bi-pencil-square"> @Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID })</i>
-                <i class="bi bi-trash"> @Html.ActionLink("Törlés", "Delete", new { oid = item.OID })</i>
-            </td>
-		</tr>
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Szakasz)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.KorSzama)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Ido)
+				</td>
+				<td>
+					<i class="bi bi-pencil-square"> @Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID })</i>
+					<i class="bi bi-trash"> @Html.ActionLink("Törlés", "Delete", new { oid = item.OID })</i>
+				</td>
+			</tr>
 		}
 	</tbody>
 </table>
+<br />
+<br />
 <br />

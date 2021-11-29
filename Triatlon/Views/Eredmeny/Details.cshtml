@@ -2,80 +2,98 @@
 
 
 @{
-    ViewData["Title"] = "Részletek";
+	ViewData["Title"] = "Részletek";
 }
 
 <br />
 <h2><i class="bi bi-search"></i> Eredmény részletei</h2>
 <hr />
-<div>
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VersenyzoNev)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VersenyzoNev)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Egyesulet)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Egyesulet)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ChipKod)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ChipKod)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Rajtszam)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Rajtszam)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.UszasIdo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.UszasIdo)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Depo1Ido)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Depo1Ido)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.KerekparIdo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.KerekparIdo)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Depo2Ido)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Depo2Ido)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FutasIdo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FutasIdo)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CelIdo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CelIdo)
-        </dd>
 
-    </dl>
+<div>
+	<b>@Html.DisplayFor(model => model.VersenyNev)</b>	
+</div>
+<hr />
+
+<div>
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.AbszolutHelyezes)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.AbszolutHelyezes)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.VersenyzoNev)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.VersenyzoNev)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Egyesulet)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Egyesulet)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.ChipKod)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.ChipKod)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Rajtszam)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Rajtszam)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.UszasIdo)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.UszasIdo)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Depo1Ido)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Depo1Ido)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.KerekparIdo)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.KerekparIdo)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Depo2Ido)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Depo2Ido)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.FutasIdo)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.FutasIdo)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.CelIdo)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.CelIdo)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.RanglistaPont)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.RanglistaPont)
+		</dd>
+
+	</dl>
 </div>
 <div>
-    <a class="btn btn-primary" href='javascript:history.go(-1)'><i class="bi bi-box-arrow-left"></i> </a>
-    @Html.ActionLink("Szerkesztés", "Edit", new { oid = Model.OID })
+	<a class="btn btn-primary" href='javascript:history.go(-1)'><i class="bi bi-box-arrow-left"></i> </a>
+	@Html.ActionLink("Szerkesztés", "Edit", new { oid = Model.OID })
 </div>
 <br />
 <br />

@@ -16,19 +16,19 @@
 		<input type="submit" title="Upload" value="OK" />
 	}
 </p>
+<hr />
 
 <table class="table table-striped table-sm">
 	<thead>
 		<tr>
-			@*Versenyző neve, egyesület*@
 			<th>
 				@Html.DisplayNameFor(model => model.AbszolutHelyezes)
 			</th>
-			@*<th>
-				@Html.DisplayNameFor(model => model.VersenyOID)
-				</th>*@
 			<th>
-				@Html.DisplayNameFor(model => model.VersenyzoOID)
+				@Html.DisplayNameFor(model => model.Versenyzo.Nev)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Versenyzo.Egyesulet)
 			</th>
 			<th>
 				@Html.DisplayNameFor(model => model.Rajtszam)
@@ -63,51 +63,50 @@
 	<tbody>
 		@foreach (var item in Model)
 		{
-			<tr>
-				@*Versenyző neve, egyesület*@
-				<td>
-					@Html.DisplayFor(modelItem => item.AbszolutHelyezes)
-				</td>
-				@*<td>
-					@Html.DisplayFor(modelItem => item.VersenyOID)
-					</td>*@
-				<td>
-					@Html.DisplayFor(modelItem => item.VersenyzoOID)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Rajtszam)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.ChipKod)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.UszasIdo)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Depo1Ido)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.KerekparIdo)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Depo2Ido)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.FutasIdo)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.CelIdo)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.OID)
-				</td>
-				<td>
-					<i class="bi bi-search"> @Html.ActionLink("Részletek", "Details", new { oid = item.OID })</i>
-					<i class="bi bi-clock"> @Html.ActionLink("Köridők", "List", "Korido", new { oid = item.OID })</i>
-					<i class="bi bi-pencil-square"> @Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID })</i>
-					<i class="bi bi-trash"> @Html.ActionLink("Törlés", "Delete", new { oid = item.OID })</i>
-				</td>
-			</tr>
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.AbszolutHelyezes)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Versenyzo.Nev)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Versenyzo.Egyesulet)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Rajtszam)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.ChipKod)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.UszasIdo)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Depo1Ido)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.KerekparIdo)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Depo2Ido)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.FutasIdo)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.CelIdo)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.OID)
+			</td>
+			<td>
+				<i class="bi bi-search"> @Html.ActionLink("Részletek", "Details", new { oid = item.OID })</i>
+				<i class="bi bi-clock"> @Html.ActionLink("Köridők", "List", "Korido", new { oid = item.OID })</i>
+				<i class="bi bi-pencil-square"> @Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID })</i>
+				<i class="bi bi-trash"> @Html.ActionLink("Törlés", "Delete", new { oid = item.OID })</i>
+			</td>
+		</tr>
 		}
 	</tbody>
 </table>

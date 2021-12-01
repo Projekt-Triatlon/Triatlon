@@ -26,12 +26,17 @@ namespace Triatlon.Controllers
 
 
 
-		public ActionResult List(string oid)
+		public ActionResult List(string oid, string nem, string kategoria)
 		{
 			try
 			{
 				var eredmenyManager = TDI.Resolve<EredmenyManager>();
-				var eredmenyek = eredmenyManager.GetSelected(oid);
+				var eredmenyek = eredmenyManager.GetSelected(oid, nem, kategoria);
+				foreach (var item in eredmenyek)
+				{
+					item.CelIdo = item.UszasIdo + item.Depo1Ido + item.KerekparIdo + item.Depo2Ido + item.FutasIdo;
+					eredmenyManager.Update(item);
+				}
 
 				int x = 1;
 				foreach (var item in eredmenyek)
@@ -48,23 +53,6 @@ namespace Triatlon.Controllers
 				return View();
 			}
 		}
-
-		//public ActionResult Lista(string oid)
-		//{
-		//	try
-		//	{
-		//		var eredmenyManager = TDI.Resolve<EredmenyManager>();
-		//		var eredmenyek = eredmenyManager.GetSelected(oid);
-
-		//		return View(eredmenyek);
-		//	}
-		//	catch
-		//	{
-		//		return View();
-		//	}
-		//}
-
-
 
 		// GET: EredmenyController/Details/5
 		public ActionResult Details(int oid)
@@ -139,7 +127,11 @@ namespace Triatlon.Controllers
 				eredmeny.KerekparIdo = TimeSpan.Parse(collection["KerekparIdo"]);
 				eredmeny.Depo2Ido = TimeSpan.Parse(collection["Depo2Ido"]);
 				eredmeny.FutasIdo = TimeSpan.Parse(collection["FutasIdo"]);
-				eredmeny.CelIdo = TimeSpan.Parse(collection["CelIdo"]);
+				eredmeny.CelIdo = TimeSpan.Parse(collection["UszasIdo"])
+					+ TimeSpan.Parse(collection["Depo1Ido"])
+					+ TimeSpan.Parse(collection["KerekparIdo"])
+					+ TimeSpan.Parse(collection["Depo2Ido"])
+					+ TimeSpan.Parse(collection["FutasIdo"]);
 				eredmeny.VersenyzoOID = Convert.ToInt64(collection["VersenyzoOID"]);
 				eredmeny.VersenyOID = Convert.ToInt64(collection["VersenyOID"]);
 
@@ -272,11 +264,10 @@ namespace Triatlon.Controllers
 								KerekparIdo = TimeSpan.Parse(rows[4].ToString()),
 								Depo2Ido = TimeSpan.Parse(rows[5].ToString()),
 								FutasIdo = TimeSpan.Parse(rows[6].ToString()),
-								CelIdo = TimeSpan.Parse(rows[7].ToString()),
+								CelIdo = TimeSpan.Parse("00:00:00"),
 								AbszolutHelyezes = 0,
-								//AbszolutHelyezes = Int64.Parse(rows[8].ToString()),
-								VersenyzoOID = Int64.Parse(rows[8].ToString()),
-								VersenyOID = Int64.Parse(rows[9].ToString()),
+								VersenyzoOID = Int64.Parse(rows[7].ToString()),
+								VersenyOID = Int64.Parse(rows[8].ToString()),
 							});
 
 						}

@@ -46,22 +46,14 @@
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
-	@*<script type="text/javascript">
-			//TODO: lehetne onClick is
-			$('#DropDownL').change(function() {
-				var ddlValue = $(this).val();
-
-				$('#Link').attr('href', function() {
-					return this.href.replace("ListValue", ddlValue);
-				});
-			});
-		</script>*@
 	<script type="text/javascript">
-		$("#Link").click(function () {
+		$("#Link2").click(function () {
 			var ddlValue = $('#DropDownL').val();
+			var nemValue = $('#Nem').val();
+			var katValue = $('#Kategoria').val();
 
-			$('#Link').attr('href', function () {
-				return this.href.replace("ListValue", ddlValue);
+			$('#Link2').attr('href', function () {
+				return this.href.replace("ListValue", ddlValue).replace("Nem", nemValue).replace("Kategoria", katValue);
 			});
 		});
 	</script>

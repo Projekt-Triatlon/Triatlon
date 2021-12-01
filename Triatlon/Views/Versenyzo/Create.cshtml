@@ -18,13 +18,12 @@
 			</div>
 			<div class="form-group">
 				<label asp-for="Nem" class="control-label"></label>
-				@*<input asp-for="Nem" class="form-control" />*@
 				@Html.DropDownListFor(x => x.Nem, new List<SelectListItem>
 								{
 									new SelectListItem {Text = "Férfi", Value = "Férfi"},
 									new SelectListItem {Text = "Nő", Value = "Nő"},
 									new SelectListItem {Text = "Egyéb", Value = "Egyéb"},
-								}, "--Kérlek válassz--", new { })
+								}, "--Kérem válasszon--", new { })
 				<span asp-validation-for="Nem" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -32,6 +31,23 @@
 				<input asp-for="SzulIdo" class="form-control" />
 				<span asp-validation-for="SzulIdo" class="text-danger"></span>
 			</div>
+			@*<div class="form-group">
+				<label asp-for="Korcsoport" class="control-label"></label>
+				@Html.DropDownListFor(x => x.Nem, new List<SelectListItem>
+								{
+									new SelectListItem {Text = "Újonc", Value = "újonc"},
+									new SelectListItem {Text = "Gyermek", Value = "Gyermek"},
+									new SelectListItem {Text = "Serdülő", Value = "Serdülő"},
+									new SelectListItem {Text = "Ifúsági", Value = "Ifúsági"},
+									new SelectListItem {Text = "Junior", Value = "Junior"},
+									new SelectListItem {Text = "Felnőtt", Value = "Felnőtt"},
+									new SelectListItem {Text = "Szenior", Value = "Szenior"},
+									new SelectListItem {Text = "Veterán", Value = "Veterán"},
+									new SelectListItem {Text = "Elit", Value = "Elit"},
+									new SelectListItem {Text = "Egyéb", Value = "Egyéb"},
+								}, "--Kérlek válassz--", new { })
+				<span asp-validation-for="Korcsoport" class="text-danger"></span>
+			</div>*@
 			<div class="form-group">
 				<label asp-for="Egyesulet" class="control-label"></label>
 				<input asp-for="Egyesulet" class="form-control" />

@@ -157,8 +157,8 @@ namespace Triatlon.Controllers
 					Datum = Convert.ToDateTime(collection["Datum"]),
 					UTavolsag = Convert.ToDouble(collection["UTavolsag"]),
 					UKorokSzama = Convert.ToInt32(collection["UKorokSzama"]),
-					UNeopren = Convert.ToBoolean(collection["UNeopren"]),
 					UTipus = collection["UTipus"],
+					UNeopren = Convert.ToBoolean(collection["UNeopren"]),
 					UMelyseg = Convert.ToDouble(collection["UMelyseg"]),
 					UVizHofok = Convert.ToDouble(collection["UVizHofok"]),
 					UHullamzas = collection["UHullamzas"],
@@ -181,7 +181,7 @@ namespace Triatlon.Controllers
 					FSzel = Convert.ToDouble(collection["FSzel"]),
 					FCsapadek = Convert.ToDouble(collection["FCsapadek"]),
 					FLevegoHomerseklet = Convert.ToDouble(collection["FLevegoHomerseklet"]),
-					FLevegoParatartalom = Convert.ToDouble(collection["FLevegoParatartalom"]),
+					FLevegoParatartalom = Convert.ToDouble(collection["FLevegoParatartalom"])
 				};
 
 				var versenyManager = TDI.Resolve<VersenyManager>();
@@ -280,7 +280,7 @@ namespace Triatlon.Controllers
 					Datum = Convert.ToDateTime(collection["Datum"]),
 					UTavolsag = Convert.ToDouble(collection["UTavolsag"]),
 					UKorokSzama = Convert.ToInt32(collection["UKorokSzama"]),
-					UNeopren = false,
+					UNeopren = Convert.ToBoolean(collection["UNeopren"]),
 					UTipus = collection["UTipus"],
 					UMelyseg = Convert.ToDouble(collection["UMelyseg"]),
 					UVizHofok = Convert.ToDouble(collection["UVizHofok"]),

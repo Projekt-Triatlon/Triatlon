@@ -44,6 +44,20 @@ namespace TriatlonLogic.Models
 		public long AbszolutHelyezes { get; set; }
 
 
+		[DisplayName("Úszás helyezés")]
+		public int UszasHelyezes { get; set; }
+
+		[DisplayName("Depó 1 helyezés")]
+		public int Depo1Helyezes { get; set; }
+
+		[DisplayName("Kerékpár helyezés")]
+		public int KerekparHelyezes { get; set; }
+
+		[DisplayName("Depó 2 helyezés")]
+		public int Depo2Helyezes { get; set; }
+
+		[DisplayName("Futás helyezés")]
+		public int FutasHelyezes { get; set; }
 
 
 		public long VersenyzoOID { get; set; }

@@ -276,6 +276,12 @@ namespace TriatlonLogic.Managers
 			eredmenyDisplayDto.CelIdo = eredmeny.CelIdo;
 			eredmenyDisplayDto.AbszolutHelyezes = eredmeny.AbszolutHelyezes;
 
+			eredmenyDisplayDto.UszasHelyezes = eredmeny.UszasHelyezes;
+			eredmenyDisplayDto.Depo1Helyezes = eredmeny.Depo1Helyezes;
+			eredmenyDisplayDto.KerekparHelyezes = eredmeny.KerekparHelyezes;
+			eredmenyDisplayDto.Depo2Helyezes = eredmeny.Depo2Helyezes;
+			eredmenyDisplayDto.FutasHelyezes = eredmeny.FutasHelyezes;
+
 			eredmenyDisplayDto.VersenyzoNev = versenyzo.Nev;
 			eredmenyDisplayDto.Egyesulet = versenyzo.Egyesulet;
 			eredmenyDisplayDto.VersenyNev = verseny.Nev;
@@ -303,6 +309,11 @@ namespace TriatlonLogic.Managers
 			eredmeny.FutasIdo = tempEredmeny.FutasIdo;
 			eredmeny.CelIdo = tempEredmeny.CelIdo;
 			eredmeny.AbszolutHelyezes = tempEredmeny.AbszolutHelyezes;
+			eredmeny.UszasHelyezes = tempEredmeny.UszasHelyezes;
+			eredmeny.Depo1Helyezes = tempEredmeny.Depo1Helyezes;
+			eredmeny.KerekparHelyezes = tempEredmeny.KerekparHelyezes;
+			eredmeny.Depo2Helyezes = tempEredmeny.Depo2Helyezes;
+			eredmeny.FutasHelyezes = tempEredmeny.FutasHelyezes;
 
 			eredmenyRepository.Update(eredmeny);
 		}
@@ -314,5 +325,6 @@ namespace TriatlonLogic.Managers
 
 			eredmenyRepository.Delete(eredmeny);
 		}
+
 	}
 }

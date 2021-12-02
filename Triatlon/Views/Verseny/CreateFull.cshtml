@@ -1,17 +1,17 @@
 ﻿@model TriatlonLogic.Models.Verseny
 
 @{
-	ViewData["Title"] = "Versenyadatok módosítása";
+	ViewData["Title"] = "Verseny létrehozása";
 }
 
-<br />
-<h2><i class="bi bi-pencil-square"></i> Versenyadatok módosítása</h2>
+<h1>Verseny létrehozása</h1>
+
+<h4>Verseny</h4>
 <hr />
 <div class="row">
 	<div class="col-md-4">
-		<form asp-action="Edit">
+		<form asp-action="CreateFull">
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-			<input type="hidden" asp-for="OID" />
 			<div class="form-group">
 				<label asp-for="Nev" class="control-label"></label>
 				<input asp-for="Nev" class="form-control" />
@@ -37,6 +37,26 @@
 				<input asp-for="UKorokSzama" class="form-control" />
 				<span asp-validation-for="UKorokSzama" class="text-danger"></span>
 			</div>
+
+			<div class="form-group">
+				<label asp-for="UTipus" class="control-label"></label>
+				@Html.DropDownListFor(x => x.UTipus, new List<SelectListItem>
+								{
+									new SelectListItem {Text = "Óceán", Value = "Óceán"},
+									new SelectListItem {Text = "Tenger", Value = "Tenger"},
+									new SelectListItem {Text = "Folyó", Value = "Folyó"},
+									new SelectListItem {Text = "Öböl", Value = "Öböl"},
+									new SelectListItem {Text = "Tó", Value = "Tó"},
+									new SelectListItem {Text = "Medence", Value = "Medence"},
+									new SelectListItem {Text = "Egyéb", Value = "Egyéb"},
+								}, "--Kérem válasszon--", new { })
+				<span asp-validation-for="UTipus" class="text-danger"></span>
+			</div>
+			@*<div class="form-group form-check">
+			<label class="form-check-label">
+				<input class="form-check-input" asp-for="UNeopren" /> @Html.DisplayNameFor(model => model.UNeopren)
+			</label>
+		</div>*@
 			<div class="form-group">
 				<label asp-for="UNeopren" class="control-label"></label>
 				<select asp-for="UNeopren">
@@ -44,11 +64,7 @@
 					<option value="false">Nem</option>
 				</select>
 			</div>
-			<div class="form-group">
-				<label asp-for="UTipus" class="control-label"></label>
-				<input asp-for="UTipus" class="form-control" />
-				<span asp-validation-for="UTipus" class="text-danger"></span>
-			</div>
+			<br />
 			<div class="form-group">
 				<label asp-for="UMelyseg" class="control-label"></label>
 				<input asp-for="UMelyseg" class="form-control" />
@@ -165,11 +181,14 @@
 				<span asp-validation-for="FLevegoParatartalom" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<a class="btn btn-primary" asp-action="Index"><i class="bi bi-box-arrow-left"></i></a>
-				<input type="submit" value="Mentés" class="btn btn-primary" />
+				<input type="submit" value="Létrehozás" class="btn btn-primary" />
 			</div>
 		</form>
 	</div>
+</div>
+
+<div>
+	<a asp-action="Index">Vissza a versenyekhez</a>
 </div>
 <br />
 <br />
@@ -177,3 +196,4 @@
 @section Scripts {
 	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+

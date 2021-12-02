@@ -9,6 +9,7 @@
 <br>
 <p>
 	<a class="btn btn-primary" asp-action="Create"><i class="bi bi-file-earmark-plus-fill"></i> Új verseny</a>
+	<a class="btn btn-primary" asp-action="CreateFull"><i class="bi bi-file-earmark-plus-fill"></i> Új verseny részletes adatokkal</a>
 	<div><b>Versenyek betöltése CSV fájlból: </b></div>
 	@using (Html.BeginForm("Index", "Verseny", FormMethod.Post, new { enctype = "multipart/form-data" }))
 	{

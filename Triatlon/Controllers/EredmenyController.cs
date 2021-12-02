@@ -24,8 +24,6 @@ namespace Triatlon.Controllers
 
 		}
 
-
-
 		public ActionResult List(string oid, string nem, string kategoria)
 		{
 			try
@@ -38,6 +36,7 @@ namespace Triatlon.Controllers
 					eredmenyManager.Update(item);
 				}
 
+
 				int x = 1;
 				foreach (var item in eredmenyek)
 				{
@@ -45,6 +44,68 @@ namespace Triatlon.Controllers
 					eredmenyManager.Update(item);
 					x++;
 				}
+
+				var uszasRanglista = eredmenyManager.GetSelected(oid, nem, kategoria)
+					.OrderBy(x => x.UszasIdo)
+					.ToList();
+
+				int y1 = 1;
+				foreach (var item in uszasRanglista)
+				{
+					item.UszasHelyezes = y1;
+					eredmenyManager.Update(item);
+					y1++;
+				}
+
+				var depo1Ranglista = eredmenyManager.GetSelected(oid, nem, kategoria)
+					.OrderBy(x => x.Depo1Ido)
+					.ToList();
+
+				int y2 = 1;
+				foreach (var item in depo1Ranglista)
+				{
+					item.Depo1Helyezes = y2;
+					eredmenyManager.Update(item);
+					y2++;
+				}
+
+				var kerekparRanglista = eredmenyManager.GetSelected(oid, nem, kategoria)
+					.OrderBy(x => x.KerekparIdo)
+					.ToList();
+
+				int y3 = 1;
+				foreach (var item in kerekparRanglista)
+				{
+					item.KerekparHelyezes = y3;
+					eredmenyManager.Update(item);
+					y3++;
+				}
+
+				var depo2Ranglista = eredmenyManager.GetSelected(oid, nem, kategoria)
+					.OrderBy(x => x.Depo2Ido)
+					.ToList();
+
+				int y4 = 1;
+
+				foreach (var item in depo2Ranglista)
+				{
+					item.Depo2Helyezes = y4;
+					eredmenyManager.Update(item);
+					y4++;
+				}
+
+				var futasRanglista = eredmenyManager.GetSelected(oid, nem, kategoria)
+					.OrderBy(x => x.FutasIdo)
+					.ToList();
+
+				int y5 = 1;
+				foreach (var item in futasRanglista)
+				{
+					item.FutasHelyezes = y5;
+					eredmenyManager.Update(item);
+					y5++;
+				}
+
 
 				return View(eredmenyek);
 			}
@@ -183,7 +244,6 @@ namespace Triatlon.Controllers
 				eredmenyManager.Update(tempEredmeny);
 
 				return RedirectToAction("List", "Eredmeny", new { oid = tempEredmeny.VersenyOID });
-
 			}
 			catch
 			{

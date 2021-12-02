@@ -1,5 +1,50 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Kapcsolat";
+}
+
+<div class="container">
+    <div style="text-align:center">
+        <br />
+        <h3>Kérdésed van? Problémád akadt?</h3>
+        <h2>Lépj velünk kapcsolatba!</h2>
+        <hr />
+    </div>
+    <div class="row">
+        <div class="col-md-4 text-danger">
+            <form action="">
+                <div class="form-group">
+                    <label for="vnev" class="control-label">Vezetéknév</label><br />
+                    <input class="form-control" id="vnev" name="vezeteknev">
+                </div>
+                <div class="form-group">
+                    <label for="knev" class="control-label">Keresztnév</label><br />
+                    <input class="form-control" id="knev" name="keresztnev">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="control-label">Email</label><br />
+                    <input class="form-control" id="email" name="emailcim">
+                </div>
+                <div class="form-group">
+                    <label for="targy" class="control-label">Tárgy</label><br />
+                    <select id="targy" name="targy">
+                        <option value="kerdes">Kérdés</option>
+                        <option value="panasz">Panasz</option>
+                        <option value="javaslat">Javaslat</option>
+                        <option value="eszrevetel">Észrevétel</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="uzenet" class="control-label">Üzenet</label><br />
+                    <textarea id="uzenet" name="uzenet" width="500px" height="250px"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Küldés" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

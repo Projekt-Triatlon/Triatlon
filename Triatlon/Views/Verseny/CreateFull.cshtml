@@ -4,9 +4,8 @@
 	ViewData["Title"] = "Verseny létrehozása";
 }
 
-<h1>Verseny létrehozása</h1>
-
-<h4>Verseny</h4>
+<br />
+<h2><i class="bi bi-file-earmark-plus"></i> Verseny létrehozása</h2>
 <hr />
 <div class="row">
 	<div class="col-md-4">
@@ -180,15 +179,12 @@
 				<input asp-for="FLevegoParatartalom" class="form-control" />
 				<span asp-validation-for="FLevegoParatartalom" class="text-danger"></span>
 			</div>
-			<div class="form-group">
-				<input type="submit" value="Létrehozás" class="btn btn-primary" />
-			</div>
+            <div class="form-group">
+                <a class="btn btn-primary" asp-action="Index"><i class="bi bi-box-arrow-left"></i></a>
+                <input type="submit" value="Mentés" class="btn btn-primary" />
+            </div>
 		</form>
 	</div>
-</div>
-
-<div>
-	<a asp-action="Index">Vissza a versenyekhez</a>
 </div>
 <br />
 <br />

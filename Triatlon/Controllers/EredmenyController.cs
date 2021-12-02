@@ -33,6 +33,23 @@ namespace Triatlon.Controllers
 				foreach (var item in eredmenyek)
 				{
 					item.CelIdo = item.UszasIdo + item.Depo1Ido + item.KerekparIdo + item.Depo2Ido + item.FutasIdo;
+
+					double d1 = item.Verseny.UTavolsag;
+					TimeSpan time1 = item.KerekparIdo;
+					TimeSpan v1 = time1 / (d1*10);
+
+					double d2 = item.Verseny.KTavolsag;
+					TimeSpan time2 = item.KerekparIdo;
+					double v2 = d2 / time2.TotalHours;
+
+					double d3 = item.Verseny.FTavolsag;
+					TimeSpan time3 = item.KerekparIdo;
+					TimeSpan v3 = time3/d3;
+
+					item.UszasSebesseg = v1;
+					item.KerekparSebesseg = v2;
+					item.FutasSebesseg = v3;
+
 					eredmenyManager.Update(item);
 				}
 
@@ -105,7 +122,6 @@ namespace Triatlon.Controllers
 					eredmenyManager.Update(item);
 					y5++;
 				}
-
 
 				return View(eredmenyek);
 			}
@@ -326,6 +342,14 @@ namespace Triatlon.Controllers
 								FutasIdo = TimeSpan.Parse(rows[6].ToString()),
 								CelIdo = TimeSpan.Parse("00:00:00"),
 								AbszolutHelyezes = 0,
+								UszasHelyezes = 0,
+								Depo1Helyezes = 0,
+								KerekparHelyezes = 0,
+								Depo2Helyezes = 0,
+								FutasHelyezes = 0,
+								UszasSebesseg = TimeSpan.Parse("00:00:00"),
+								KerekparSebesseg = 0,
+								FutasSebesseg = TimeSpan.Parse("00:00:00"),
 								VersenyzoOID = Int64.Parse(rows[7].ToString()),
 								VersenyOID = Int64.Parse(rows[8].ToString()),
 							});

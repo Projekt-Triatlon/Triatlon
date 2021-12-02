@@ -47,11 +47,17 @@ namespace TriatlonLogic.Models
 		[DisplayName("Úszás helyezés")]
 		public int UszasHelyezes { get; set; }
 
+		[DisplayName("Úszás sebesség [min:sec/100m]")]
+		public TimeSpan UszasSebesseg { get; set; }
+
 		[DisplayName("Depó 1 helyezés")]
 		public int Depo1Helyezes { get; set; }
 
 		[DisplayName("Kerékpár helyezés")]
 		public int KerekparHelyezes { get; set; }
+
+		[DisplayName("Kerekpár sebesség [km/h]")]
+		public double KerekparSebesseg { get; set; }
 
 		[DisplayName("Depó 2 helyezés")]
 		public int Depo2Helyezes { get; set; }
@@ -59,6 +65,8 @@ namespace TriatlonLogic.Models
 		[DisplayName("Futás helyezés")]
 		public int FutasHelyezes { get; set; }
 
+		[DisplayName("Futás sebesség [min:sec/km]")]
+		public TimeSpan FutasSebesseg { get; set; }
 
 		public long VersenyzoOID { get; set; }
 

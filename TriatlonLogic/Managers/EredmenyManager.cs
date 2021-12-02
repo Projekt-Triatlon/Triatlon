@@ -281,6 +281,9 @@ namespace TriatlonLogic.Managers
 			eredmenyDisplayDto.KerekparHelyezes = eredmeny.KerekparHelyezes;
 			eredmenyDisplayDto.Depo2Helyezes = eredmeny.Depo2Helyezes;
 			eredmenyDisplayDto.FutasHelyezes = eredmeny.FutasHelyezes;
+			eredmenyDisplayDto.UszasSebesseg = eredmeny.UszasSebesseg;
+			eredmenyDisplayDto.KerekparSebesseg = eredmeny.KerekparSebesseg;
+			eredmenyDisplayDto.FutasSebesseg = eredmeny.FutasSebesseg;
 
 			eredmenyDisplayDto.VersenyzoNev = versenyzo.Nev;
 			eredmenyDisplayDto.Egyesulet = versenyzo.Egyesulet;
@@ -314,6 +317,9 @@ namespace TriatlonLogic.Managers
 			eredmeny.KerekparHelyezes = tempEredmeny.KerekparHelyezes;
 			eredmeny.Depo2Helyezes = tempEredmeny.Depo2Helyezes;
 			eredmeny.FutasHelyezes = tempEredmeny.FutasHelyezes;
+			eredmeny.UszasSebesseg = tempEredmeny.UszasSebesseg;
+			eredmeny.KerekparSebesseg = tempEredmeny.KerekparSebesseg;
+			eredmeny.FutasSebesseg = tempEredmeny.FutasSebesseg;
 
 			eredmenyRepository.Update(eredmeny);
 		}

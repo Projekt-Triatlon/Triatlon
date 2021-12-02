@@ -62,6 +62,19 @@ namespace TriatlonLogic.DataTransferObjects
 		[DisplayName("Cél idő")]
 		public TimeSpan CelIdo { get; set; }
 
+		[DisplayName("Úszás sebesség [min:sec/100m]")]
+		public TimeSpan UszasSebesseg { get; set; }
+
+		[DisplayName("Kerékpár sebesség [km/h]")]
+		public double KerekparSebesseg { get; set; }
+
+		[DisplayName("Futás sebesség [min:sec/km]")]
+		public TimeSpan FutasSebesseg { get; set; }
+		
+
+
+
+
 		[DisplayName("Ranglista pont")]
 		public double RanglistaPont { get; set; }
 

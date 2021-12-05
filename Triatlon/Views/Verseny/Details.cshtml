@@ -214,8 +214,9 @@
 
 </div>
 <div>
-    <a class="btn btn-primary" asp-action="Index"><i class="bi bi-box-arrow-left"></i> </a>
-    @Html.ActionLink("Adatok szerkesztése", "EditFull", new { @Model.OID })
+    <a class="btn btn-primary" asp-action="Index"><i class="bi bi-box-arrow-left"></i> Vissza</a>
+    <a class="btn btn-primary" href='@Url.Action("EditFull", new { @Model.OID })'><i class="bi bi-pencil-square"></i> Szerkesztés</a>
+
 </div>
 <br />
 <br />

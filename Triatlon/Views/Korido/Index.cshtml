@@ -8,7 +8,7 @@
 <h2><i class="bi bi-clock"></i> Köridők</h2>
 <hr />
 <p>
-	<a class="btn btn-primary" href='javascript:history.go(-1)'><i class="bi bi-box-arrow-left"></i> </a>
+	<a class="btn btn-primary" href='javascript:history.go(-1)'><i class="bi bi-box-arrow-left"></i> Vissza</a>
 	<a type="button" asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Új köridő</a>
 </p>
 <table class="table">
@@ -39,10 +39,10 @@
 				<td>
 					@Html.DisplayFor(modelItem => item.Ido)
 				</td>
-				<td>
-					<i class="bi bi-pencil-square"> @Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID })</i>
-					<i class="bi bi-trash"> @Html.ActionLink("Törlés", "Delete", new { oid = item.OID })</i>
-				</td>
+                <td>
+                    <a href='@Url.Action("Edit", new { oid = item.OID })'><i class="bi bi-pencil-square"></i></a>
+                    <a href='@Url.Action("Delete", new { oid = item.OID })'><i class="bi bi-trash"></i></a>
+                </td>
 			</tr>
 		}
 	</tbody>

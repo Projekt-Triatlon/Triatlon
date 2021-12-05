@@ -44,44 +44,44 @@
 <h3><i class="bi bi-check2-square"></i> Adatok szűrése</h3>
 <hr />
 <form method="post" asp-action="List">
-	<p>
+    <p>
 
-		<i>Kategória kiválasztása: </i>
-		@Html.DropDownList("Kategoria", new List<SelectListItem>
-										{
-											new SelectListItem {Text = "Abszolút összesített", Value = "AbszÖssz"},
-											new SelectListItem {Text = "Nemenkénti összesített", Value = "Össz"},
-											new SelectListItem {Text = "Újonc1 (8-9 éves)", Value = "Újonc1"},
-											new SelectListItem {Text = "Újonc2 (10-11 éves)", Value = "Újonc2"},
-											new SelectListItem {Text = "Gyermek (12-13 éves)", Value = "Gyermek"},
-											new SelectListItem {Text = "Serdülő (14-15 éves)", Value = "Serdülő"},
-											new SelectListItem {Text = "Ifjúsági (16-17 éves)", Value = "Ifjúsági"},
-											new SelectListItem {Text = "Junior (18-19 éves)", Value = "Junior"},
-											new SelectListItem {Text = "Felnőtt1 (18-24 éves)", Value = "Felnőtt1"},
-											new SelectListItem {Text = "Felnőtt2 (25-29 éves)", Value = "Felnőtt2"},
-											new SelectListItem {Text = "Felnőtt3 (30-34 éves)", Value = "Felnőtt3"},
-											new SelectListItem {Text = "Felnőtt4 (35-39 éves)", Value = "Felnőtt4"},
-											new SelectListItem {Text = "Szenior1 (40-44 éves)", Value = "Szenior1"},
-											new SelectListItem {Text = "Szenior2 (45-9 éves)", Value = "Szenior2"},
-											new SelectListItem {Text = "Szenior3 (50-54 éves)", Value = "Szenior3"},
-											new SelectListItem {Text = "Szenior4 (55-59 éves)", Value = "Szenior4"},
-											new SelectListItem {Text = "Veterán1 (60-64 éves)", Value = "Veterán1"},
-											new SelectListItem {Text = "Veterán2 (65-69 éves)", Value = "Veterán2"},
-											new SelectListItem {Text = "Veterán3 (70-74 éves)", Value = "Veterán3"},
-											new SelectListItem {Text = "Veterán4 (75-79 éves)", Value = "Veterán4"},
-											new SelectListItem {Text = "Veterán5 (80+ éves)", Value = "Veterán5"},
-											new SelectListItem {Text = "Elit U23 (20-23 éves)", Value = "ElitU23"},
-											new SelectListItem {Text = "Elit (20+ éves)", Value = "Elit"},
-										}, "--Kérem válasszon--", new { id = "Kategoria" })
-		<i>  Nem kiválasztása: </i>
-		@Html.DropDownList("Nem", new List<SelectListItem>
-										{
-											new SelectListItem {Text = "Férfi", Value = "Férfi"},
-											new SelectListItem {Text = "Nő", Value = "Nő"},
-										}, "--Kérem válasszon--", new { id = "Nem" })
+        <i>Kategória kiválasztása: </i>
+        @Html.DropDownList("Kategoria", new List<SelectListItem>
+                                        {
+                                            new SelectListItem {Text = "Abszolút összesített", Value = "AbszÖssz"},
+                                            new SelectListItem {Text = "Nemenkénti összesített", Value = "Össz"},
+                                            new SelectListItem {Text = "Újonc1 (8-9 éves)", Value = "Újonc1"},
+                                            new SelectListItem {Text = "Újonc2 (10-11 éves)", Value = "Újonc2"},
+                                            new SelectListItem {Text = "Gyermek (12-13 éves)", Value = "Gyermek"},
+                                            new SelectListItem {Text = "Serdülő (14-15 éves)", Value = "Serdülő"},
+                                            new SelectListItem {Text = "Ifjúsági (16-17 éves)", Value = "Ifjúsági"},
+                                            new SelectListItem {Text = "Junior (18-19 éves)", Value = "Junior"},
+                                            new SelectListItem {Text = "Felnőtt1 (18-24 éves)", Value = "Felnőtt1"},
+                                            new SelectListItem {Text = "Felnőtt2 (25-29 éves)", Value = "Felnőtt2"},
+                                            new SelectListItem {Text = "Felnőtt3 (30-34 éves)", Value = "Felnőtt3"},
+                                            new SelectListItem {Text = "Felnőtt4 (35-39 éves)", Value = "Felnőtt4"},
+                                            new SelectListItem {Text = "Szenior1 (40-44 éves)", Value = "Szenior1"},
+                                            new SelectListItem {Text = "Szenior2 (45-9 éves)", Value = "Szenior2"},
+                                            new SelectListItem {Text = "Szenior3 (50-54 éves)", Value = "Szenior3"},
+                                            new SelectListItem {Text = "Szenior4 (55-59 éves)", Value = "Szenior4"},
+                                            new SelectListItem {Text = "Veterán1 (60-64 éves)", Value = "Veterán1"},
+                                            new SelectListItem {Text = "Veterán2 (65-69 éves)", Value = "Veterán2"},
+                                            new SelectListItem {Text = "Veterán3 (70-74 éves)", Value = "Veterán3"},
+                                            new SelectListItem {Text = "Veterán4 (75-79 éves)", Value = "Veterán4"},
+                                            new SelectListItem {Text = "Veterán5 (80+ éves)", Value = "Veterán5"},
+                                            new SelectListItem {Text = "Elit U23 (20-23 éves)", Value = "ElitU23"},
+                                            new SelectListItem {Text = "Elit (20+ éves)", Value = "Elit"},
+                                        }, "--Kérem válasszon--", new { id = "Kategoria" })
+        <i>  Nem kiválasztása: </i>
+        @Html.DropDownList("Nem", new List<SelectListItem>
+                                        {
+                                            new SelectListItem {Text = "Férfi", Value = "Férfi"},
+                                            new SelectListItem {Text = "Nő", Value = "Nő"},
+                                        }, "--Kérem válasszon--", new { id = "Nem" })
 
-		<i class="bi bi-search"> @Html.ActionLink("OK", "List", "Eredmeny", new { oid = "ListValue", nem = "Nem", kategoria = "Kategoria" }, new { id = "Link2" }) </i>
-	</p>
+        <i class="bi bi-search"> @Html.ActionLink("OK", "List", "Eredmeny", new { oid = "ListValue", nem = "Nem", kategoria = "Kategoria" }, new { id = "Link2" }) </i>
+    </p>
 </form>
 
 

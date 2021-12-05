@@ -42,8 +42,8 @@
     </dl>
 </div>
 <div>
-    <a class="btn btn-primary" asp-action="Index"><i class="bi bi-box-arrow-left"></i> </a>
-    @Html.ActionLink("Szerkesztés", "Edit", new { oid = Model.OID })
+    <a class="btn btn-primary" asp-action="Index"><i class="bi bi-box-arrow-left"></i> Vissza</a>
+    <a class="btn btn-primary" href='@Url.Action("Edit", new { oid = Model.OID })'><i class="bi bi-pencil-square"></i> Szerkesztés</a>
 </div>
 <br />
 <br />

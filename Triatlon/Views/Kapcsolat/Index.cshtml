@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label for="uzenet" class="control-label">Üzenet</label><br />
-                    <textarea id="uzenet" name="uzenet" width="500px" height="250px"></textarea>
+                    <textarea id="uzenet" name="uzenet" rows="10" cols="80"></textarea>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Küldés" class="btn btn-primary" />
@@ -44,6 +44,8 @@
         </div>
     </div>
 </div>
+<br />
+<br />
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

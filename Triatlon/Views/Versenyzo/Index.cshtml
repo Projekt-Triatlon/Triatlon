@@ -69,11 +69,11 @@
 				<td>
 					@Html.DisplayFor(modelItem => item.Licence)
 				</td>
-				<td>
-					<i class="bi bi-pencil-square"> @Html.ActionLink("Szerkesztés", "Edit", new { oid = item.OID })</i>
-					<i class="bi bi-search"> @Html.ActionLink("Részletek", "Details", new { oid = item.OID })</i>
-					<i class="bi bi-trash"> @Html.ActionLink("Törlés", "Delete", new { oid = item.OID })</i>
-				</td>
+                <td>
+                    <a href='@Url.Action("Edit", new { oid = item.OID })'><i class="bi bi-pencil-square"></i></a>
+                    <a href='@Url.Action("Details", new { oid = item.OID })'><i class="bi bi-search"></i></a>
+                    <a href='@Url.Action("Delete", new { oid = item.OID })'><i class="bi bi-trash"></i></a>
+                </td>
 			</tr>
 		}
 	</tbody>

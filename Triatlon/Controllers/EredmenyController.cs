@@ -370,5 +370,19 @@ namespace Triatlon.Controllers
 			}
 			return RedirectToAction("Select", "Eredmeny");
 		}
+
+		public ActionResult DeleteAll()
+		{
+			var eredmenyManager = TDI.Resolve<EredmenyManager>();
+			var eredmenyek = eredmenyManager.GetAll();
+
+
+			foreach (var item in eredmenyek)
+			{
+				eredmenyManager.Delete(item.OID);
+			}
+
+			return RedirectToAction("Select", "Eredmeny");
+		}
 	}
 }

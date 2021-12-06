@@ -10,7 +10,7 @@
 <hr />
 
 <div>
-    <h3><i class="bi bi-bar-chart-fill"></i><b>@Html.DisplayFor(model => model.VersenyNev)</b></h3>
+	<h3><i class="bi bi-bar-chart-fill"></i><b>@Html.DisplayFor(model => model.VersenyNev)</b></h3>
 </div>
 <hr />
 
@@ -136,7 +136,7 @@
 			@Html.DisplayNameFor(model => model.UszasSebesseg)
 		</dt>
 		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.UszasSebesseg)
+		    @Model.UszasSebesseg.ToString((@"mm\:ss"))
 		</dd>
 		<dt class="col-sm-2">
 			@Html.DisplayNameFor(model => model.KerekparSebesseg)
@@ -148,14 +148,14 @@
 			@Html.DisplayNameFor(model => model.FutasSebesseg)
 		</dt>
 		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.FutasSebesseg)
+			@Model.FutasSebesseg.ToString((@"mm\:ss"))
 		</dd>
 
 	</dl>
 </div>
 <div>
-    <a class="btn btn-primary" href='javascript:history.go(-1)'><i class="bi bi-box-arrow-left"></i> Vissza</a>
-    <a class="btn btn-primary" href='@Url.Action("Edit", new { oid = Model.OID })'><i class="bi bi-pencil-square"></i> Szerkesztés</a>
+	<a class="btn btn-primary" href='javascript:history.go(-1)'><i class="bi bi-box-arrow-left"></i> Vissza</a>
+	<a class="btn btn-primary" href='@Url.Action("Edit", new { oid = Model.OID })'><i class="bi bi-pencil-square"></i> Szerkesztés</a>
 </div>
 <br />
 <br />

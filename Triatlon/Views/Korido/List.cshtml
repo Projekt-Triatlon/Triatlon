@@ -52,14 +52,18 @@
 				<td>
 					@Html.DisplayFor(modelItem => item.Ido)
 				</td>
-                <td>
-                    <a href='@Url.Action("Edit", new { oid = item.OID })'><i class="bi bi-pencil-square"></i></a>
-                    <a href='@Url.Action("Delete", new { oid = item.OID })'><i class="bi bi-trash"></i></a>
-                </td>
+				<td>
+					<a href='@Url.Action("Edit", new { oid = item.OID })'><i class="bi bi-pencil-square"></i></a>
+					<a href='@Url.Action("Delete", new { oid = item.OID })'><i class="bi bi-trash"></i></a>
+				</td>
 			</tr>
 		}
 	</tbody>
 </table>
+
+<form asp-action="DeleteAll">
+	<input type="submit" value="Összes törlése" class="btn btn-danger" onclick="return confirm('Biztos, hogy törölni szeretné az összes adatot?')" />
+</form>
 <br />
 <br />
 <br />

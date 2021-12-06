@@ -7,15 +7,15 @@
 <br>
 
 <p>
-    <a class="btn btn-primary" href='javascript:history.go(-1)'><i class="bi bi-box-arrow-left"></i> Vissza</a>
-    <a type="button" asp-action="Create" class="btn btn-primary"><i class="bi bi-file-earmark-plus-fill"></i> Új eredmény</a>
+	<a class="btn btn-primary" href='javascript:history.go(-1)'><i class="bi bi-box-arrow-left"></i> Vissza</a>
+	<a type="button" asp-action="Create" class="btn btn-primary"><i class="bi bi-file-earmark-plus-fill"></i> Új eredmény</a>
 
-    <div><b>Eredmények betöltése CSV fájlból: </b></div>
-    @using (Html.BeginForm("Index", "Eredmeny", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <input type="file" id="postedFile" name="postedFile" />
-        <input type="submit" title="Upload" value="OK" />
-    }
+	<div><b>Eredmények betöltése CSV fájlból: </b></div>
+	@using (Html.BeginForm("Index", "Eredmeny", FormMethod.Post, new { enctype = "multipart/form-data" }))
+	{
+		<input type="file" id="postedFile" name="postedFile" />
+		<input type="submit" title="Upload" value="OK" />
+	}
 </p>
 <hr />
 
@@ -101,15 +101,19 @@
 			<td>
 				@Html.DisplayFor(modelItem => item.OID)
 			</td>
-            <td>
-                <a href='@Url.Action("List", "Korido", new { oid = item.OID })'><i class="bi bi-clock"></i></a>
-                <a href='@Url.Action("Details", new { oid = item.OID })'><i class="bi bi-search"></i></a>
-                <a href='@Url.Action("Edit", new { oid = item.OID })'><i class="bi bi-pencil-square"></i></a>
-                <a href='@Url.Action("Delete", new { oid = item.OID })'><i class="bi bi-trash"></i></a>
-            </td>
+			<td>
+				<a href='@Url.Action("List", "Korido", new { oid = item.OID })'><i class="bi bi-clock"></i></a>
+				<a href='@Url.Action("Details", new { oid = item.OID })'><i class="bi bi-search"></i></a>
+				<a href='@Url.Action("Edit", new { oid = item.OID })'><i class="bi bi-pencil-square"></i></a>
+				<a href='@Url.Action("Delete", new { oid = item.OID })'><i class="bi bi-trash"></i></a>
+			</td>
 		</tr>
 		}
 	</tbody>
 </table>
+
+<form asp-action="DeleteAll">
+	<input type="submit" value="Összes törlése" class="btn btn-danger" onclick="return confirm('Biztos, hogy törölni szeretné az összes adatot?')" />
+</form>
 <br />
 <br />

@@ -179,5 +179,18 @@ namespace Triatlon.Controllers
 				return View();
 			}
 		}
+
+		public ActionResult DeleteAll()
+		{
+			var koridoManager = TDI.Resolve<KoridoManager>();
+			var koridok = koridoManager.GetAll();
+
+			foreach (var item in koridok)
+			{
+				koridoManager.Delete(item.OID);
+			}
+
+			return RedirectToAction("Select", "Eredmeny");
+		}
 	}
 }

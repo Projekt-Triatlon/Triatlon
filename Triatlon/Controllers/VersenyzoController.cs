@@ -193,5 +193,19 @@ namespace Triatlon.Controllers
 			}
 		}
 
+		public ActionResult DeleteAll()
+		{
+			var versenyzoManager = TDI.Resolve<VersenyzoManager>();
+			var versenyzoList = versenyzoManager.GetAll();
+
+
+			foreach (var item in versenyzoList)
+			{
+				versenyzoManager.Delete(item.OID);
+			}
+
+			return RedirectToAction("Index", "Versenyzo");
+		}
+
 	}
 }

@@ -342,6 +342,20 @@ namespace Triatlon.Controllers
 				return View();
 			}
 		}
+
+		public ActionResult DeleteAll()
+		{
+			var versenyManager = TDI.Resolve<VersenyManager>();
+			var versenyek = versenyManager.GetAll();
+
+			foreach (var item in versenyek)
+			{
+				versenyManager.Delete(item.OID);
+			}
+
+			return RedirectToAction("Index", "Verseny");
+		}
+
 	}
 
 }
